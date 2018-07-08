@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CEP-Cd-PEy">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,25 +15,35 @@
             <objects>
                 <viewController id="CEP-Cd-PEy" customClass="LoginViewController" customModule="TVShows" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DCo-1b-ok9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpf-ej-63x">
-                                <rect key="frame" x="65" y="200" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3I-5Y-MgV">
+                                <rect key="frame" x="137" y="235" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapButton:" destination="CEP-Cd-PEy" eventType="touchUpInside" id="M3R-ee-Pcy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpf-ej-63x">
+                                <rect key="frame" x="139" y="176" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3I-5Y-MgV">
-                                <rect key="frame" x="49" y="546" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mpf-ej-63x" firstAttribute="centerX" secondItem="p3I-5Y-MgV" secondAttribute="centerX" id="0IB-D8-YIk"/>
+                            <constraint firstItem="p3I-5Y-MgV" firstAttribute="centerY" secondItem="Ixy-LZ-vXc" secondAttribute="centerY" id="Byc-17-oYm"/>
+                            <constraint firstItem="p3I-5Y-MgV" firstAttribute="top" secondItem="mpf-ej-63x" secondAttribute="bottom" constant="38" id="khQ-1u-DJD"/>
+                            <constraint firstItem="p3I-5Y-MgV" firstAttribute="centerX" secondItem="Ixy-LZ-vXc" secondAttribute="centerX" id="mCN-iK-oXx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ixy-LZ-vXc"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="mpf-ej-63x" id="7rx-D4-tXr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THF-73-iHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
