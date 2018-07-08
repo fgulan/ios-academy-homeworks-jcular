@@ -22,6 +22,13 @@ class LoginViewController: UIViewController {
         self.updateLabelWithTapNumber()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
+            self.startOrStopActivityIndicator()
+        }
+    }
+
     @IBAction func didTapButton(_ sender: Any) {
         print("Button tapped")
         numberOfTaps += 1
