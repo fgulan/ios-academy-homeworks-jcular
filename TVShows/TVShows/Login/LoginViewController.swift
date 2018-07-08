@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
 
     private var numberOfTaps = 0
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var button: UIButton!
 
@@ -25,10 +26,19 @@ class LoginViewController: UIViewController {
         print("Button tapped")
         numberOfTaps += 1
         self.updateLabelWithTapNumber()
+        self.startOrStopActivityIndicator()
     }
 
     private func updateLabelWithTapNumber() {
         self.label.text = String(self.numberOfTaps)
+    }
+
+    private func startOrStopActivityIndicator() {
+        if (self.activityIndicator.isAnimating) {
+            self.activityIndicator.stopAnimating()
+        } else {
+            self.activityIndicator.startAnimating()
+        }
     }
 
 }
