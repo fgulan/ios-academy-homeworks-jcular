@@ -19,15 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpf-ej-63x">
-                                <rect key="frame" x="98.5" y="137" width="123" height="60"/>
+                                <rect key="frame" x="98.5" y="140" width="123" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3I-5Y-MgV">
-                                <rect key="frame" x="137" y="235" width="46" height="30"/>
+                                <rect key="frame" x="121" y="238" width="78" height="24"/>
                                 <color key="backgroundColor" red="0.37482937242018288" green="0.73031969426593379" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Button" image="login_icon">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -60,4 +60,7 @@
             <point key="canvasLocation" x="-490" y="84"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login_icon" width="24" height="24"/>
+    </resources>
 </document>
