@@ -11,10 +11,13 @@ import UIKit
 class LoginViewController: UIViewController {
 
     private var numberOfTaps = 0
+
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var button: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.button.layer.cornerRadius = 5.0
         self.updateLabelWithTapNumber()
     }
 

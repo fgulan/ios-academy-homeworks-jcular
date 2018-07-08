@@ -20,7 +20,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3I-5Y-MgV">
                                 <rect key="frame" x="137" y="235" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.37482937242018288" green="0.73031969426593379" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapButton:" destination="CEP-Cd-PEy" eventType="touchUpInside" id="M3R-ee-Pcy"/>
                                 </connections>
@@ -42,6 +45,7 @@
                         <viewLayoutGuide key="safeArea" id="Ixy-LZ-vXc"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="p3I-5Y-MgV" id="gsj-jR-kj7"/>
                         <outlet property="label" destination="mpf-ej-63x" id="7rx-D4-tXr"/>
                     </connections>
                 </viewController>
