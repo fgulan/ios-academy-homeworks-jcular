@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
+		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
 		CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA07E2520EE6F44005118C8 /* AppDelegate.swift */; };
 		CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2C20EE6F45005118C8 /* Assets.xcassets */; };
 		CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */; };
@@ -15,6 +16,7 @@
 
 /* Begin PBXFileReference section */
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CDA07E2220EE6F44005118C8 /* TVShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA07E2520EE6F44005118C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDA07E2C20EE6F45005118C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +39,7 @@
 			isa = PBXGroup;
 			children = (
 				CD8493CA20F2A21B00873A10 /* Login.storyboard */,
+				CD8493CC20F2A24D00873A10 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */,
 				CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
