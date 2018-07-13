@@ -21,10 +21,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-logo" translatesAutoresizingMaskIntoConstraints="NO" id="8mi-LY-hO4">
                                 <rect key="frame" x="122.5" y="57" width="75" height="80"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWN-x6-lHo">
+                                <rect key="frame" x="15" y="178" width="290" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="NWN-x6-lHo" firstAttribute="leading" secondItem="daX-1Z-RlQ" secondAttribute="leading" constant="15" id="Mtu-6l-GnV"/>
                             <constraint firstItem="8mi-LY-hO4" firstAttribute="top" secondItem="daX-1Z-RlQ" secondAttribute="top" constant="37" id="NqU-j3-awJ"/>
+                            <constraint firstItem="daX-1Z-RlQ" firstAttribute="trailing" secondItem="NWN-x6-lHo" secondAttribute="trailing" constant="15" id="PoR-T4-J7O"/>
+                            <constraint firstItem="NWN-x6-lHo" firstAttribute="top" secondItem="8mi-LY-hO4" secondAttribute="bottom" constant="41" id="w30-KS-yVn"/>
                             <constraint firstItem="8mi-LY-hO4" firstAttribute="centerX" secondItem="daX-1Z-RlQ" secondAttribute="centerX" id="wlj-ym-A02"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="daX-1Z-RlQ"/>
