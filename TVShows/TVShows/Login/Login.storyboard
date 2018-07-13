@@ -17,7 +17,16 @@
                     <view key="view" contentMode="scaleToFill" id="bBy-l4-6Gt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-logo" translatesAutoresizingMaskIntoConstraints="NO" id="8mi-LY-hO4">
+                                <rect key="frame" x="122.5" y="57" width="75" height="80"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8mi-LY-hO4" firstAttribute="top" secondItem="daX-1Z-RlQ" secondAttribute="top" constant="37" id="NqU-j3-awJ"/>
+                            <constraint firstItem="8mi-LY-hO4" firstAttribute="centerX" secondItem="daX-1Z-RlQ" secondAttribute="centerX" id="wlj-ym-A02"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="daX-1Z-RlQ"/>
                     </view>
                 </viewController>
@@ -26,4 +35,7 @@
             <point key="canvasLocation" x="-809" y="-24"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login-logo" width="75" height="80"/>
+    </resources>
 </document>
