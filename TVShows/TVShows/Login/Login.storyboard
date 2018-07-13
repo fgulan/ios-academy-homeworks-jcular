@@ -27,12 +27,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCh-vn-82l">
+                                <rect key="frame" x="15" y="228" width="290" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="zCh-vn-82l" firstAttribute="top" secondItem="NWN-x6-lHo" secondAttribute="bottom" constant="33" id="8ZH-rn-9F5"/>
                             <constraint firstItem="NWN-x6-lHo" firstAttribute="leading" secondItem="daX-1Z-RlQ" secondAttribute="leading" constant="15" id="Mtu-6l-GnV"/>
                             <constraint firstItem="8mi-LY-hO4" firstAttribute="top" secondItem="daX-1Z-RlQ" secondAttribute="top" constant="37" id="NqU-j3-awJ"/>
                             <constraint firstItem="daX-1Z-RlQ" firstAttribute="trailing" secondItem="NWN-x6-lHo" secondAttribute="trailing" constant="15" id="PoR-T4-J7O"/>
+                            <constraint firstItem="zCh-vn-82l" firstAttribute="width" secondItem="NWN-x6-lHo" secondAttribute="width" id="e8f-Lw-W4f"/>
+                            <constraint firstItem="zCh-vn-82l" firstAttribute="centerX" secondItem="NWN-x6-lHo" secondAttribute="centerX" id="q07-3W-v9v"/>
                             <constraint firstItem="NWN-x6-lHo" firstAttribute="top" secondItem="8mi-LY-hO4" secondAttribute="bottom" constant="41" id="w30-KS-yVn"/>
                             <constraint firstItem="8mi-LY-hO4" firstAttribute="centerX" secondItem="daX-1Z-RlQ" secondAttribute="centerX" id="wlj-ym-A02"/>
                         </constraints>
