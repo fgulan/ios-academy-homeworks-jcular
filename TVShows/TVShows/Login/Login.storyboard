@@ -164,6 +164,7 @@
                     </view>
                     <connections>
                         <outlet property="logInButton" destination="vEl-a9-Nxg" id="3M0-ap-RVU"/>
+                        <outlet property="rememberMeCheckmark" destination="kwQ-G0-MQq" id="QQX-oe-2aP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGh-o4-ge9" userLabel="First Responder" sceneMemberID="firstResponder"/>
