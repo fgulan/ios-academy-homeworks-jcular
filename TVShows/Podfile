@@ -4,5 +4,7 @@ use_frameworks!
 target 'TVShows' do
   pod 'Alamofire', '~> 4.7'
   pod 'CodableAlamofire', '~> 1.1'
+  pod "PromiseKit/CorePromise", "~> 6.0"
+  pod 'PromiseKit/Alamofire'
   pod 'SVProgressHUD', '~> 2.2'
 end
