@@ -10,11 +10,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    // MARK: - IBOutlets -
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var rememberMeCheckmark: UIButton!
+
+    // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,23 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
         unregisterNotifications()
     }
+
+    // MARK: - IBActions -
+
+    @IBAction private func didPressRememberMeCheckmark(_ sender: Any) {
+        rememberMeCheckmark.isSelected = !rememberMeCheckmark.isSelected
+    }
+
+    @IBAction private func didTapToHideKeyboard(_ sender: Any) {
+        if usernameTextField.isFirstResponder {
+            usernameTextField.resignFirstResponder()
+        }
+        if passwordTextField.isFirstResponder {
+            passwordTextField.resignFirstResponder()
+        }
+    }
+
+    // MARK: - Notifications -
 
     private func registerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
@@ -52,19 +73,6 @@ class LoginViewController: UIViewController {
 
     @objc private func keyboardWillHide(notification: NSNotification){
         scrollView.contentInset.bottom = 0
-    }
-
-    @IBAction private func didPressRememberMeCheckmark(_ sender: Any) {
-        rememberMeCheckmark.isSelected = !rememberMeCheckmark.isSelected
-    }
-
-    @IBAction func didTapToHideKeyboard(_ sender: Any) {
-        if usernameTextField.isFirstResponder {
-            usernameTextField.resignFirstResponder()
-        }
-        if passwordTextField.isFirstResponder {
-            passwordTextField.resignFirstResponder()
-        }
     }
 
 }
