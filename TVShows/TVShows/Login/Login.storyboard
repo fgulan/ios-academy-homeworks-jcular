@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4gM-OA-0SZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0UK-HV-d8J">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAe-XF-UGn">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfV-fB-DLj">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="533"/>
@@ -162,6 +162,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="daX-1Z-RlQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nFa-s3-1Un"/>
                     <connections>
                         <outlet property="logInButton" destination="vEl-a9-Nxg" id="3M0-ap-RVU"/>
                         <outlet property="passwordTextField" destination="zCh-vn-82l" id="miF-gM-okA"/>
@@ -177,7 +178,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-809" y="-24"/>
+            <point key="canvasLocation" x="187.5" y="-24.295774647887324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f4p-DW-h3C">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0UK-HV-d8J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xpg-YZ-zlq">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4gM-OA-0SZ" kind="relationship" relationship="rootViewController" id="01O-VQ-pT5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jAi-9q-iQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="-24.295774647887324"/>
         </scene>
     </scenes>
     <resources>
