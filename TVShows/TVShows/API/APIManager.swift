@@ -10,6 +10,7 @@ import Foundation
 import SVProgressHUD
 import Alamofire
 import CodableAlamofire
+import PromiseKit
 
 class APIManager {
 
@@ -21,22 +22,20 @@ class APIManager {
             "password": password
         ]
 
-        Alamofire
-            .request(_registerUserURL,
-                     method: .post,
-                     parameters: parameters,
-                     encoding: JSONEncoding.default)
-            .validate()
-            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) { (dataResponse: DataResponse<User>) in
-
-                SVProgressHUD.dismiss()
-
-                switch dataResponse.result {
-                    case .success(let user):
-                        successCallback(user)
-                    case .failure(let error):
-                        failureCallback(error)
-                }
+        firstly {
+            Alamofire
+                .request(_registerUserURL,
+                         method: .post,
+                         parameters: parameters,
+                         encoding: JSONEncoding.default)
+                .validate()
+                .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+        }.done { user in
+            successCallback(user)
+        }.catch { error in
+            failureCallback(error)
+        }.finally {
+            SVProgressHUD.dismiss()
         }
     }
 
@@ -48,22 +47,20 @@ class APIManager {
             "password": password
         ]
 
-        Alamofire
-            .request(_loginUserURL,
-                     method: .post,
-                     parameters: parameters,
-                     encoding: JSONEncoding.default)
-            .validate()
-            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder()) { (dataResponse: DataResponse<LoginData>) in
-
-                SVProgressHUD.dismiss()
-
-                switch dataResponse.result {
-                    case .success(let loginUser):
-                        successCallback(loginUser)
-                    case .failure(let error):
-                        failureCallback(error)
-                }
+        firstly {
+            Alamofire
+                .request(_loginUserURL,
+                         method: .post,
+                         parameters: parameters,
+                         encoding: JSONEncoding.default)
+                .validate()
+                .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+        }.done { loginUser in
+            successCallback(loginUser)
+        }.catch { error in
+            failureCallback(error)
+        }.finally {
+            SVProgressHUD.dismiss()
         }
     }
 
