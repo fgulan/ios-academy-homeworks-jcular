@@ -14,6 +14,7 @@
 		CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */; };
 		CDC70A7820FE5C6F004AF82E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC70A7720FE5C6F004AF82E /* Home.storyboard */; };
 		CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */; };
+		CDE4E1E420FE73BF0099B515 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E1E320FE73BF0099B515 /* UserModel.swift */; };
 		D67BBFE0FC41A2D0CD985457 /* Pods_TVShows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7595E7C63A278ED3E6C79C78 /* Pods_TVShows.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		CDA07E3120EE6F45005118C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDC70A7720FE5C6F004AF82E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CDE4E1E320FE73BF0099B515 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				CD8493CA20F2A21B00873A10 /* Login.storyboard */,
 				CD8493CC20F2A24D00873A10 /* LoginViewController.swift */,
+				CDE4E1E320FE73BF0099B515 /* UserModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */,
 				CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */,
+				CDE4E1E420FE73BF0099B515 /* UserModel.swift in Sources */,
 				CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
