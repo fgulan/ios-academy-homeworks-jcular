@@ -38,7 +38,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="49"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                                <textInputTraits key="textInputTraits" textContentType="email"/>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fx-G7-Aim">
                                                                 <rect key="frame" x="0.0" y="49" width="280" height="1"/>
@@ -85,7 +85,7 @@
                                                                 <state key="normal" image="ic-checkbox-empty"/>
                                                                 <state key="selected" image="ic-checkbox-filled"/>
                                                                 <connections>
-                                                                    <action selector="didPressRememberMeCheckmark:" destination="4gM-OA-0SZ" eventType="touchUpInside" id="fys-uv-Y1V"/>
+                                                                    <action selector="_didPressRememberMeCheckmark:" destination="4gM-OA-0SZ" eventType="touchUpInside" id="BVN-nQ-O7C"/>
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUc-qN-QFa">
@@ -110,7 +110,7 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="LOG IN"/>
                                                         <connections>
-                                                            <action selector="didTapLogInButton:" destination="4gM-OA-0SZ" eventType="touchUpInside" id="LQV-Ni-BC2"/>
+                                                            <action selector="_didTapLogInButton:" destination="4gM-OA-0SZ" eventType="touchUpInside" id="sPO-wp-du7"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSo-fX-1v0">
@@ -126,7 +126,7 @@
                                                             <color key="titleColor" red="1" green="0.45882352941176469" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="didTapCreateAccountButton:" destination="4gM-OA-0SZ" eventType="touchUpInside" id="WQR-te-jIV"/>
+                                                            <action selector="_didTapCreateAccountButton:" destination="4gM-OA-0SZ" eventType="touchUpInside" id="v6r-iH-nIP"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -170,17 +170,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="nFa-s3-1Un"/>
                     <connections>
-                        <outlet property="logInButton" destination="vEl-a9-Nxg" id="3M0-ap-RVU"/>
-                        <outlet property="passwordTextField" destination="zCh-vn-82l" id="miF-gM-okA"/>
-                        <outlet property="rememberMeCheckmark" destination="kwQ-G0-MQq" id="QQX-oe-2aP"/>
-                        <outlet property="scrollView" destination="NAe-XF-UGn" id="NEG-pb-lh0"/>
-                        <outlet property="usernameTextField" destination="NWN-x6-lHo" id="AI4-Pv-AgU"/>
+                        <outlet property="_logInButton" destination="vEl-a9-Nxg" id="zRM-Ab-1YE"/>
+                        <outlet property="_passwordTextField" destination="zCh-vn-82l" id="b0K-uW-UXx"/>
+                        <outlet property="_rememberMeCheckmark" destination="kwQ-G0-MQq" id="QOZ-zo-mO1"/>
+                        <outlet property="_scrollView" destination="NAe-XF-UGn" id="D4m-ok-0Lq"/>
+                        <outlet property="_usernameTextField" destination="NWN-x6-lHo" id="wCx-sA-KSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGh-o4-ge9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="KVN-XR-d49">
                     <connections>
-                        <action selector="didTapToHideKeyboard:" destination="4gM-OA-0SZ" id="eb3-ik-tb0"/>
+                        <action selector="_didTapToHideKeyboard:" destination="4gM-OA-0SZ" id="9Ak-pZ-vgC"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

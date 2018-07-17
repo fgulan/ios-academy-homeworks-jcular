@@ -12,77 +12,87 @@ class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets -
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var rememberMeCheckmark: UIButton!
+    @IBOutlet private weak var _scrollView: UIScrollView!
+    @IBOutlet private weak var _usernameTextField: UITextField!
+    @IBOutlet private weak var _passwordTextField: UITextField!
+    @IBOutlet private weak var _logInButton: UIButton!
+    @IBOutlet private weak var _rememberMeCheckmark: UIButton!
 
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logInButton.layer.cornerRadius = 5.0
+        _logInButton.layer.cornerRadius = 5.0
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        registerNotifications()
+        _registerNotifications()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unregisterNotifications()
+        _unregisterNotifications()
     }
 
     // MARK: - IBActions -
 
-    @IBAction private func didPressRememberMeCheckmark(_ sender: Any) {
-        rememberMeCheckmark.isSelected = !rememberMeCheckmark.isSelected
+    @IBAction private func _didPressRememberMeCheckmark(_ sender: Any) {
+        _rememberMeCheckmark.isSelected = !_rememberMeCheckmark.isSelected
     }
 
-    @IBAction private func didTapToHideKeyboard(_ sender: Any) {
-        if usernameTextField.isFirstResponder {
-            usernameTextField.resignFirstResponder()
+    @IBAction private func _didTapToHideKeyboard(_ sender: Any) {
+        if _usernameTextField.isFirstResponder {
+            _usernameTextField.resignFirstResponder()
         }
-        if passwordTextField.isFirstResponder {
-            passwordTextField.resignFirstResponder()
+        if _passwordTextField.isFirstResponder {
+            _passwordTextField.resignFirstResponder()
         }
     }
 
-    @IBAction func didTapLogInButton(_ sender: Any) {
-        let homeViewController = HomeViewController.initFromStoryboard()
-        self.navigationController?.pushViewController(homeViewController, animated: true)
+    @IBAction func _didTapLogInButton(_ sender: Any) {
+        guard
+            let username = _usernameTextField.text,
+            let password = _passwordTextField.text
+        else { return }
     }
 
-    @IBAction func didTapCreateAccountButton(_ sender: Any) {
-        let homeViewController = HomeViewController.initFromStoryboard()
-        self.navigationController?.pushViewController(homeViewController, animated: true)
+    @IBAction func _didTapCreateAccountButton(_ sender: Any) {
+        guard
+            let username = _usernameTextField.text,
+            let password = _passwordTextField.text
+        else { return }
     }
 
     // MARK: - Notifications -
 
-    private func registerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    private func _registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(_keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(_keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
 
-    private func unregisterNotifications() {
+    private func _unregisterNotifications() {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 
-    @objc private func keyboardWillShow(notification: NSNotification){
+    @objc private func _keyboardWillShow(notification: NSNotification){
         guard
             let userInfo = notification.userInfo,
             let keyboardRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
             else { return }
-        scrollView.contentInset.bottom = keyboardRect.size.height
+        _scrollView.contentInset.bottom = keyboardRect.size.height
     }
 
-    @objc private func keyboardWillHide(notification: NSNotification){
-        scrollView.contentInset.bottom = 0
+    @objc private func _keyboardWillHide(notification: NSNotification){
+        _scrollView.contentInset.bottom = 0
+    }
+
+}
+
+    }
+
     }
 
 }
