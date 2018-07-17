@@ -18,6 +18,11 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var _logInButton: UIButton!
     @IBOutlet private weak var _rememberMeCheckmark: UIButton!
 
+    // MARK: - Private properties -
+
+    private var _user: User?
+    private var _loginUser: LoginData?
+
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
@@ -56,6 +61,19 @@ class LoginViewController: UIViewController {
             let username = _usernameTextField.text,
             let password = _passwordTextField.text
         else { return }
+
+        APIManager.loginUserWith(
+            email: username,
+            password: password,
+            successCallback: { [weak self] (loginUser) in
+                self?._loginUser = loginUser
+
+                let homeViewController = HomeViewController.initFromStoryboard()
+                self?.navigationController?.pushViewController(homeViewController, animated: true)
+            },
+            failureCallback: { (error) in
+                print("API error: \(error)")
+        })
     }
 
     @IBAction func _didTapCreateAccountButton(_ sender: Any) {
@@ -63,6 +81,19 @@ class LoginViewController: UIViewController {
             let username = _usernameTextField.text,
             let password = _passwordTextField.text
         else { return }
+
+        APIManager.registerUserWith(
+            email: username,
+            password: password,
+            successCallback: { [weak self] (user) in
+                self?._user = user
+
+                let homeViewController = HomeViewController.initFromStoryboard()
+                self?.navigationController?.pushViewController(homeViewController, animated: true)
+            },
+            failureCallback: { (error) in
+                print("API error: \(error)")
+        })
     }
 
     // MARK: - Notifications -
@@ -87,12 +118,6 @@ class LoginViewController: UIViewController {
 
     @objc private func _keyboardWillHide(notification: NSNotification){
         _scrollView.contentInset.bottom = 0
-    }
-
-}
-
-    }
-
     }
 
 }
