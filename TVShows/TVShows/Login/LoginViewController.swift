@@ -11,6 +11,8 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var rememberMeCheckmark: UIButton!
 
@@ -54,6 +56,15 @@ class LoginViewController: UIViewController {
 
     @IBAction private func didPressRememberMeCheckmark(_ sender: Any) {
         rememberMeCheckmark.isSelected = !rememberMeCheckmark.isSelected
+    }
+
+    @IBAction func didTapToHideKeyboard(_ sender: Any) {
+        if usernameTextField.isFirstResponder {
+            usernameTextField.resignFirstResponder()
+        }
+        if passwordTextField.isFirstResponder {
+            passwordTextField.resignFirstResponder()
+        }
     }
 
 }

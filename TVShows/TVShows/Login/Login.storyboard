@@ -131,6 +131,7 @@
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="XfQ-0q-jw6" firstAttribute="top" secondItem="8mi-LY-hO4" secondAttribute="bottom" constant="50" id="91T-x1-sbW"/>
                                             <constraint firstItem="8mi-LY-hO4" firstAttribute="centerX" secondItem="hfV-fB-DLj" secondAttribute="centerX" id="D5h-1Y-bsz"/>
@@ -142,6 +143,9 @@
                                             <constraint firstAttribute="trailing" secondItem="8CE-yM-5ER" secondAttribute="trailing" constant="15" id="yNQ-fC-BOL"/>
                                             <constraint firstItem="8CE-yM-5ER" firstAttribute="top" secondItem="XfQ-0q-jw6" secondAttribute="bottom" constant="90" id="zCo-7z-zee"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="KVN-XR-d49" appends="YES" id="zJT-U8-l3N"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -164,11 +168,18 @@
                     </view>
                     <connections>
                         <outlet property="logInButton" destination="vEl-a9-Nxg" id="3M0-ap-RVU"/>
+                        <outlet property="passwordTextField" destination="zCh-vn-82l" id="miF-gM-okA"/>
                         <outlet property="rememberMeCheckmark" destination="kwQ-G0-MQq" id="QQX-oe-2aP"/>
                         <outlet property="scrollView" destination="NAe-XF-UGn" id="NEG-pb-lh0"/>
+                        <outlet property="usernameTextField" destination="NWN-x6-lHo" id="AI4-Pv-AgU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGh-o4-ge9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KVN-XR-d49">
+                    <connections>
+                        <action selector="didTapToHideKeyboard:" destination="4gM-OA-0SZ" id="eb3-ik-tb0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-809" y="-24"/>
         </scene>
