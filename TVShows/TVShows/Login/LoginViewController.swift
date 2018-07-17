@@ -51,6 +51,16 @@ class LoginViewController: UIViewController {
         }
     }
 
+    @IBAction func didTapLogInButton(_ sender: Any) {
+        let homeViewController = HomeViewController.initFromStoryboard()
+        self.navigationController?.pushViewController(homeViewController, animated: true)
+    }
+
+    @IBAction func didTapCreateAccountButton(_ sender: Any) {
+        let homeViewController = HomeViewController.initFromStoryboard()
+        self.navigationController?.pushViewController(homeViewController, animated: true)
+    }
+
     // MARK: - Notifications -
 
     private func registerNotifications() {

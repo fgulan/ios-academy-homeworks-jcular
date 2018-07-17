@@ -10,6 +10,13 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    // MARK: - Init -
+
+    class func initFromStoryboard() -> HomeViewController {
+        let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        return homeStoryboard.instantiateInitialViewController() as! HomeViewController
+    }
+
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
