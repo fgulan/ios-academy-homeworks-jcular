@@ -99,13 +99,23 @@ class LoginViewController: UIViewController {
     // MARK: - Notifications -
 
     private func _registerNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(_keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(_keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(_keyboardWillShow),
+                                               name: .UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(_keyboardWillHide),
+                                               name: .UIKeyboardWillHide,
+                                               object: nil)
     }
 
     private func _unregisterNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIKeyboardWillShow,
+                                                  object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIKeyboardWillHide,
+                                                  object: nil)
     }
 
     @objc private func _keyboardWillShow(notification: NSNotification){
