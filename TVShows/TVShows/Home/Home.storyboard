@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +18,42 @@
                     <view key="view" contentMode="scaleToFill" id="CPH-w2-UfW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="-1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gda-D3-PWY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="4Kq-gb-1xJ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Kq-gb-1xJ" id="GXw-Fb-YsM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuX-kf-2Mt">
+                                                    <rect key="frame" x="25" y="12" width="325" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WuX-kf-2Mt" firstAttribute="centerY" secondItem="GXw-Fb-YsM" secondAttribute="centerY" id="XuJ-ZB-Bk9"/>
+                                                <constraint firstItem="WuX-kf-2Mt" firstAttribute="leading" secondItem="GXw-Fb-YsM" secondAttribute="leadingMargin" constant="10" id="Z15-hI-sge"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WuX-kf-2Mt" secondAttribute="trailing" constant="10" id="ZAP-Tx-kTI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gda-D3-PWY" firstAttribute="leading" secondItem="OQO-SL-EX3" secondAttribute="leading" id="0BH-hz-jWl"/>
+                            <constraint firstItem="OQO-SL-EX3" firstAttribute="bottom" secondItem="gda-D3-PWY" secondAttribute="bottom" id="LDa-8N-Sza"/>
+                            <constraint firstItem="gda-D3-PWY" firstAttribute="top" secondItem="OQO-SL-EX3" secondAttribute="top" id="jIJ-ws-LaA"/>
+                            <constraint firstItem="OQO-SL-EX3" firstAttribute="trailing" secondItem="gda-D3-PWY" secondAttribute="trailing" id="m97-de-eAf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OQO-SL-EX3"/>
                     </view>
                 </viewController>
