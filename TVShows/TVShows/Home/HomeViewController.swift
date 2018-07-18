@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet private weak var _tableView: UITableView! {
         didSet {
+            _tableView.delegate = self
             _tableView.dataSource = self
         }
     }
@@ -53,6 +54,12 @@ class HomeViewController: UIViewController {
             print(error)
         }
     }
+
+}
+
+// MARK: - UITableViewDelegate -
+
+extension HomeViewController: UITableViewDelegate {
 
 }
 
