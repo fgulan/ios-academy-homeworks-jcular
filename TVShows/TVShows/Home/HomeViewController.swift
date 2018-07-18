@@ -10,11 +10,18 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    // MARK: - Private properties -
+
+    private var _loginUser: LoginData!
+
     // MARK: - Init -
 
-    class func initFromStoryboard() -> HomeViewController {
+    public class func initFromStoryboard(with loginUser: LoginData) -> HomeViewController {
         let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-        return homeStoryboard.instantiateInitialViewController() as! HomeViewController
+        let homeViewController = homeStoryboard.instantiateInitialViewController() as! HomeViewController
+        homeViewController._loginUser = loginUser
+
+        return homeViewController
     }
 
     // MARK: - Lifecycle -
