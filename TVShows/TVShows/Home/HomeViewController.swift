@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
         let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
         let homeViewController = homeStoryboard.instantiateInitialViewController() as! HomeViewController
         homeViewController._loginUser = loginUser
+        homeViewController.title = "Shows"
 
         return homeViewController
     }
