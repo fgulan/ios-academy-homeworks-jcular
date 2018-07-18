@@ -18,6 +18,7 @@
 		CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */; };
 		CDE4E1E420FE73BF0099B515 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E1E320FE73BF0099B515 /* User.swift */; };
 		CDE4E1E720FE82920099B515 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E1E620FE82920099B515 /* APIManager.swift */; };
+		CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA240B20FFD8A600B8A60A /* Show.swift */; };
 		D67BBFE0FC41A2D0CD985457 /* Pods_TVShows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7595E7C63A278ED3E6C79C78 /* Pods_TVShows.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CDE4E1E320FE73BF0099B515 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CDE4E1E620FE82920099B515 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		CDEA240B20FFD8A600B8A60A /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE4E1E320FE73BF0099B515 /* User.swift */,
+				CDEA240B20FFD8A600B8A60A /* Show.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */,
 				CDE4E1E720FE82920099B515 /* APIManager.swift in Sources */,
 				CDE4E1E420FE73BF0099B515 /* User.swift in Sources */,
+				CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */,
 				CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */,
 				CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */,
 			);
