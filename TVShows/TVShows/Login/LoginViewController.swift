@@ -10,42 +10,69 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    private var numberOfTaps = 0
+    // MARK: - IBOutlets -
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var rememberMeCheckmark: UIButton!
+
+    // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.button.layer.cornerRadius = 5.0
-        self.updateLabelWithTapNumber()
+        
+        logInButton.layer.cornerRadius = 5.0
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
-            self.startOrStopActivityIndicator()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        registerNotifications()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unregisterNotifications()
+    }
+
+    // MARK: - IBActions -
+
+    @IBAction private func didPressRememberMeCheckmark(_ sender: Any) {
+        rememberMeCheckmark.isSelected = !rememberMeCheckmark.isSelected
+    }
+
+    @IBAction private func didTapToHideKeyboard(_ sender: Any) {
+        if usernameTextField.isFirstResponder {
+            usernameTextField.resignFirstResponder()
+        }
+        if passwordTextField.isFirstResponder {
+            passwordTextField.resignFirstResponder()
         }
     }
 
-    @IBAction func didTapButton(_ sender: Any) {
-        print("Button tapped")
-        numberOfTaps += 1
-        self.updateLabelWithTapNumber()
-        self.startOrStopActivityIndicator()
+    // MARK: - Notifications -
+
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
 
-    private func updateLabelWithTapNumber() {
-        self.label.text = String(self.numberOfTaps)
+    private func unregisterNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 
-    private func startOrStopActivityIndicator() {
-        if (self.activityIndicator.isAnimating) {
-            self.activityIndicator.stopAnimating()
-        } else {
-            self.activityIndicator.startAnimating()
-        }
+    @objc private func keyboardWillShow(notification: NSNotification){
+        guard
+            let userInfo = notification.userInfo,
+            let keyboardRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+            else { return }
+        scrollView.contentInset.bottom = keyboardRect.size.height
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification){
+        scrollView.contentInset.bottom = 0
     }
 
 }
