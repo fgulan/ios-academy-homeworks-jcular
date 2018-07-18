@@ -11,6 +11,14 @@ import PromiseKit
 
 class HomeViewController: UIViewController {
 
+    // MARK: - IBOutlets -
+
+    @IBOutlet private weak var _tableView: UITableView! {
+        didSet {
+            _tableView.dataSource = self
+        }
+    }
+
     // MARK: - Private properties -
 
     private var _loginUser: LoginData!
@@ -46,4 +54,27 @@ class HomeViewController: UIViewController {
         }
     }
 
+}
+
+// MARK: - UITableViewDataSource -
+
+extension HomeViewController: UITableViewDataSource {
+
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let shows = _shows else { return 0}
+        return shows.count
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "ShowTableViewCell",
+            for: indexPath
+        ) as! ShowTableViewCell
+
+        if let shows = _shows {
+            cell.configure(show: shows[indexPath.row])
+        }
+
+        return cell
+    }
 }
