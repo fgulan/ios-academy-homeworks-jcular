@@ -114,10 +114,12 @@ class LoginViewController: UIViewController {
             let keyboardRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
             else { return }
         _scrollView.contentInset.bottom = keyboardRect.size.height
+        _scrollView.scrollIndicatorInsets.bottom = keyboardRect.size.height
     }
 
     @objc private func _keyboardWillHide(notification: NSNotification){
         _scrollView.contentInset.bottom = 0
+        _scrollView.scrollIndicatorInsets.bottom = 0
     }
 
 }
