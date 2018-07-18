@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     // MARK: - IBOutlets -
 
     @IBOutlet private weak var _scrollView: UIScrollView!
-    @IBOutlet private weak var _usernameTextField: UITextField!
+    @IBOutlet private weak var _emailTextField: UITextField!
     @IBOutlet private weak var _passwordTextField: UITextField!
     @IBOutlet private weak var _logInButton: UIButton!
     @IBOutlet private weak var _rememberMeCheckmark: UIButton!
@@ -48,8 +48,8 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction private func _didTapToHideKeyboard(_ sender: Any) {
-        if _usernameTextField.isFirstResponder {
-            _usernameTextField.resignFirstResponder()
+        if _emailTextField.isFirstResponder {
+            _emailTextField.resignFirstResponder()
         }
         if _passwordTextField.isFirstResponder {
             _passwordTextField.resignFirstResponder()
@@ -58,12 +58,12 @@ class LoginViewController: UIViewController {
 
     @IBAction func _didTapLogInButton(_ sender: Any) {
         guard
-            let username = _usernameTextField.text,
+            let email = _emailTextField.text,
             let password = _passwordTextField.text
         else { return }
 
         APIManager.loginUserWith(
-            email: username,
+            email: email,
             password: password,
             successCallback: { [weak self] (loginUser) in
                 self?._loginUser = loginUser
@@ -78,12 +78,12 @@ class LoginViewController: UIViewController {
 
     @IBAction func _didTapCreateAccountButton(_ sender: Any) {
         guard
-            let username = _usernameTextField.text,
+            let email = _emailTextField.text,
             let password = _passwordTextField.text
         else { return }
 
         APIManager.registerUserWith(
-            email: username,
+            email: email,
             password: password,
             successCallback: { [weak self] (user) in
                 self?._user = user

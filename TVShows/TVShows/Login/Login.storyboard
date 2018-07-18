@@ -34,7 +34,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZHQ-3g-52y">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWN-x6-lHo">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWN-x6-lHo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="49"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -170,11 +170,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="nFa-s3-1Un"/>
                     <connections>
+                        <outlet property="_emailTextField" destination="NWN-x6-lHo" id="wCx-sA-KSz"/>
                         <outlet property="_logInButton" destination="vEl-a9-Nxg" id="zRM-Ab-1YE"/>
                         <outlet property="_passwordTextField" destination="zCh-vn-82l" id="b0K-uW-UXx"/>
                         <outlet property="_rememberMeCheckmark" destination="kwQ-G0-MQq" id="QOZ-zo-mO1"/>
                         <outlet property="_scrollView" destination="NAe-XF-UGn" id="D4m-ok-0Lq"/>
-                        <outlet property="_usernameTextField" destination="NWN-x6-lHo" id="wCx-sA-KSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGh-o4-ge9" userLabel="First Responder" sceneMemberID="firstResponder"/>
