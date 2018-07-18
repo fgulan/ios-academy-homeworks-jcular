@@ -44,6 +44,19 @@ class APIManager {
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
+    public static func getShows(with token: String) -> Promise<[Show]> {
+
+        let headers = ["Authorization": token]
+
+        return Alamofire
+            .request(_showsURL,
+                        method: .get,
+                        encoding: JSONEncoding.default,
+                        headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
 }
 
 extension APIManager {
@@ -55,4 +68,5 @@ extension APIManager {
     private static let _loginUserURL = "\(_URL)/users/sessions"
     private static let _registerUserURL = "\(_URL)/users"
 
+    private static let _showsURL = "\(_URL)/shows"
 }
