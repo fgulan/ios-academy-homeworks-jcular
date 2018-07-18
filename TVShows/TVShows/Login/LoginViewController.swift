@@ -158,4 +158,13 @@ extension LoginViewController: Progressable {
         
     }
 
+    private func _showAlertWith(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        alertController.addAction(okAction)
+
+        self.present(alertController, animated: true)
+    }
+
 }
