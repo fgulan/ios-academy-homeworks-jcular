@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import PromiseKit
 
 class HomeViewController: UIViewController {
 
     // MARK: - Private properties -
 
     private var _loginUser: LoginData!
+    private var _shows: [Show]?
 
     // MARK: - Init -
 
@@ -28,6 +30,20 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        firstly {
+            APIManager.getShows(with: _loginUser.token)
+        }.done { [weak self] (shows: [Show]) in
+            guard let `self` = self else { return }
+            self._shows = shows
+            self._tableView.reloadData()
+        }.catch { error in
+            print(error)
+        }
     }
 
 }
