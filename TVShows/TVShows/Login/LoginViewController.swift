@@ -62,18 +62,7 @@ class LoginViewController: UIViewController {
             let password = _passwordTextField.text
         else { return }
 
-        APIManager.loginUserWith(
-            email: email,
-            password: password,
-            successCallback: { [weak self] (loginUser) in
-                self?._loginUser = loginUser
-
-                let homeViewController = HomeViewController.initFromStoryboard()
-                self?.navigationController?.pushViewController(homeViewController, animated: true)
-            },
-            failureCallback: { (error) in
-                print("API error: \(error)")
-        })
+        self._loginUser(email: email, password: password)
     }
 
     @IBAction func _didTapCreateAccountButton(_ sender: Any) {
@@ -82,18 +71,7 @@ class LoginViewController: UIViewController {
             let password = _passwordTextField.text
         else { return }
 
-        APIManager.registerUserWith(
-            email: email,
-            password: password,
-            successCallback: { [weak self] (user) in
-                self?._user = user
-
-                let homeViewController = HomeViewController.initFromStoryboard()
-                self?.navigationController?.pushViewController(homeViewController, animated: true)
-            },
-            failureCallback: { (error) in
-                print("API error: \(error)")
-        })
+        self._registerUser(email: email, password: password)
     }
 
     // MARK: - Notifications -
@@ -130,6 +108,41 @@ class LoginViewController: UIViewController {
     @objc private func _keyboardWillHide(notification: NSNotification){
         _scrollView.contentInset.bottom = 0
         _scrollView.scrollIndicatorInsets.bottom = 0
+    }
+
+}
+
+extension LoginViewController {
+
+    // MARK: - Login user -
+
+    private func _loginUser(email: String, password: String) {
+        APIManager.loginUserWith(
+            email: email,
+            password: password,
+            successCallback: { [weak self] (loginUser) in
+                self?._loginUser = loginUser
+
+                let homeViewController = HomeViewController.initFromStoryboard()
+                self?.navigationController?.pushViewController(homeViewController, animated: true)
+            },
+            failureCallback: { (error) in
+                print("API error: \(error)")
+        })
+    }
+
+    private func _registerUser(email: String, password: String) {
+        APIManager.registerUserWith(
+            email: email,
+            password: password,
+            successCallback: { [weak self] (user) in
+                self?._user = user
+
+                self?._loginUser(email: email, password: password)
+            },
+            failureCallback: { (error) in
+                print("API error: \(error)")
+        })
     }
 
 }
