@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
             let password = _passwordTextField.text
         else { return }
 
-        self._loginUser(email: email, password: password)
+        _loginUser(email: email, password: password)
     }
 
     @IBAction func _didTapCreateAccountButton(_ sender: Any) {
@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
             let password = _passwordTextField.text
         else { return }
 
-        self._registerUser(email: email, password: password)
+        _registerUser(email: email, password: password)
     }
 
     // MARK: - Notifications -
