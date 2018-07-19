@@ -121,10 +121,11 @@ extension LoginViewController {
             email: email,
             password: password,
             successCallback: { [weak self] (loginUser) in
-                self?._loginUser = loginUser
-
+                guard let `self` = self else { return }
+                
+                self._loginUser = loginUser
                 let homeViewController = HomeViewController.initFromStoryboard()
-                self?.navigationController?.pushViewController(homeViewController, animated: true)
+                self.navigationController?.pushViewController(homeViewController, animated: true)
             },
             failureCallback: { (error) in
                 print("API error: \(error)")
@@ -136,9 +137,10 @@ extension LoginViewController {
             email: email,
             password: password,
             successCallback: { [weak self] (user) in
-                self?._user = user
+                guard let `self` = self else { return }
 
-                self?._loginUser(email: email, password: password)
+                self._user = user
+                self._loginUser(email: email, password: password)
             },
             failureCallback: { (error) in
                 print("API error: \(error)")
