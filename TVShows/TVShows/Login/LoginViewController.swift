@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import CodableAlamofire
+import PromiseKit
 
 class LoginViewController: UIViewController {
 
@@ -112,39 +115,47 @@ class LoginViewController: UIViewController {
 
 }
 
-extension LoginViewController {
+extension LoginViewController: Progressable {
 
     // MARK: - Login user -
 
     private func _loginUser(email: String, password: String) {
-        APIManager.loginUserWith(
-            email: email,
-            password: password,
-            successCallback: { [weak self] (loginUser) in
-                guard let `self` = self else { return }
-                
-                self._loginUser = loginUser
-                let homeViewController = HomeViewController.initFromStoryboard()
-                self.navigationController?.pushViewController(homeViewController, animated: true)
-            },
-            failureCallback: { (error) in
-                print("API error: \(error)")
-        })
+        showProgressView()
+
+        firstly {
+            return APIManager.loginUserWith(email: email, password: password)
+        }.done { [weak self] (loginUser: LoginData) in
+            guard let `self` = self else { return }
+            self._loginUser = loginUser
+            let homeViewController = HomeViewController.initFromStoryboard()
+            self.navigationController?.pushViewController(homeViewController, animated: true)
+        }.catch { error in
+            print("API error: \(error)")
+        }.finally { [weak self] in
+            self?.hideProgress()
+    }
+
     }
 
     private func _registerUser(email: String, password: String) {
-        APIManager.registerUserWith(
-            email: email,
-            password: password,
-            successCallback: { [weak self] (user) in
-                guard let `self` = self else { return }
+        showProgressView()
 
-                self._user = user
-                self._loginUser(email: email, password: password)
-            },
-            failureCallback: { (error) in
-                print("API error: \(error)")
-        })
+        firstly {
+            APIManager.registerUserWith(email: email, password: password)
+        }.then{ [weak self] (user: User)-> Promise<LoginData> in
+            self?._user = user
+            return APIManager.loginUserWith(email: email, password: password)
+        }.done { [weak self] (loginUser: LoginData) in
+            guard let `self` = self else { return }
+            self._loginUser = loginUser
+            let homeViewController = HomeViewController.initFromStoryboard()
+            self.navigationController?.pushViewController(homeViewController, animated: true)
+        }.catch { error in
+            print("API error: \(error)")
+        }.finally { [weak self] in
+            self?.hideProgress()
+        }
+        
     }
 
 }

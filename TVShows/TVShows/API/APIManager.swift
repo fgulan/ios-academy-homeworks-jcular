@@ -14,54 +14,34 @@ import PromiseKit
 
 class APIManager {
 
-    public static func registerUserWith(email: String, password: String, successCallback: @escaping ((User) -> Void), failureCallback: @escaping ((Error) -> Void)) {
-        SVProgressHUD.show()
-
+    public static func registerUserWith(email: String, password: String) -> Promise<User> {
         let parameters: [String: String] = [
             "email": email,
             "password": password
         ]
 
-        firstly {
-            Alamofire
-                .request(_registerUserURL,
-                         method: .post,
-                         parameters: parameters,
-                         encoding: JSONEncoding.default)
-                .validate()
-                .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
-        }.done { user in
-            successCallback(user)
-        }.catch { error in
-            failureCallback(error)
-        }.finally {
-            SVProgressHUD.dismiss()
-        }
+        return Alamofire
+            .request(_registerUserURL,
+                     method: .post,
+                     parameters: parameters,
+                     encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
-    public static func loginUserWith(email: String, password: String, successCallback: @escaping ((LoginData) -> Void), failureCallback: @escaping ((Error) -> Void)) {
-        SVProgressHUD.show()
-
+    public static func loginUserWith(email: String, password: String) -> Promise<LoginData>{
         let parameters: [String: String] = [
             "email": email,
             "password": password
         ]
 
-        firstly {
-            Alamofire
-                .request(_loginUserURL,
-                         method: .post,
-                         parameters: parameters,
-                         encoding: JSONEncoding.default)
-                .validate()
-                .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
-        }.done { loginUser in
-            successCallback(loginUser)
-        }.catch { error in
-            failureCallback(error)
-        }.finally {
-            SVProgressHUD.dismiss()
-        }
+        return Alamofire
+            .request(_loginUserURL,
+                     method: .post,
+                     parameters: parameters,
+                     encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
 }
