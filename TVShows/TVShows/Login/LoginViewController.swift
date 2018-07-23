@@ -111,6 +111,13 @@ class LoginViewController: UIViewController {
         _scrollView.scrollIndicatorInsets.bottom = 0
     }
 
+    // MARK: - Navigation -
+
+    private func presentHomeViewController(with loginUser: LoginData) {
+        let homeViewController = HomeViewController.initFromStoryboard(with: loginUser)
+        self.navigationController?.setViewControllers([homeViewController], animated: true)
+    }
+
 }
 
 extension LoginViewController: Progressable {
@@ -125,10 +132,9 @@ extension LoginViewController: Progressable {
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
             self._loginUser = loginUser
-            let homeViewController = HomeViewController.initFromStoryboard()
-            self.navigationController?.pushViewController(homeViewController, animated: true)
-        }.catch { error in
-            print("API error: \(error)")
+            self.presentHomeViewController(with: loginUser)
+        }.catch { [weak self] error in
+            self?._showAlertWith(title: "Login failed", message: "Unable to login using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
     }
@@ -146,10 +152,9 @@ extension LoginViewController: Progressable {
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
             self._loginUser = loginUser
-            let homeViewController = HomeViewController.initFromStoryboard()
-            self.navigationController?.pushViewController(homeViewController, animated: true)
-        }.catch { error in
-            print("API error: \(error)")
+            self.presentHomeViewController(with: loginUser)
+        }.catch { [weak self] error in
+            self?._showAlertWith(title: "Registration failed", message: "Unable to register using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
         }
