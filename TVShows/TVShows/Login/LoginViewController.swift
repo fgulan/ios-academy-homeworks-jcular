@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import CodableAlamofire
 import PromiseKit
 
 class LoginViewController: UIViewController {
