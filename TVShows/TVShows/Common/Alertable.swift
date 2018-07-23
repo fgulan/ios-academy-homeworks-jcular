@@ -25,4 +25,5 @@ extension Alertable where Self: UIViewController {
 
         present(alertController, animated: true)
     }
+
 }

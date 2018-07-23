@@ -27,15 +27,15 @@ class ShowTableViewCell: UITableViewCell {
 
 
     override func prepareForReuse() {
-        self._show = nil
-        self._showTitleLabel.text = nil
+        _show = nil
+        _showTitleLabel.text = nil
     }
 
     // MARK: - Public -
 
     public func configure(show: Show) {
-        self._show = show
-        self._showTitleLabel.text = show.title
+        _show = show
+        _showTitleLabel.text = show.title
     }
 
 }

@@ -69,6 +69,7 @@ extension HomeViewController: Progressable, Alertable {
                 self?.hideProgress()
         }
     }
+
 }
 
 // MARK: - UITableViewDelegate -
@@ -105,4 +106,5 @@ extension HomeViewController: UITableViewDataSource {
 
         return cell
     }
+
 }

@@ -115,7 +115,7 @@ class LoginViewController: UIViewController {
 
     private func _presentHomeViewController(with loginUser: LoginData) {
         let homeViewController = HomeViewController.initFromStoryboard(with: loginUser)
-        self.navigationController?.setViewControllers([homeViewController], animated: true)
+        navigationController?.setViewControllers([homeViewController], animated: true)
     }
 
 }
@@ -140,7 +140,7 @@ extension LoginViewController: Progressable, Alertable {
             self?.hideProgress()
     }
 
-    }
+}
 
     private func _registerUser(email: String, password: String) {
         showProgressView()
