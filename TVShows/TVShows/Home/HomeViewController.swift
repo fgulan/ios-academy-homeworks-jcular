@@ -9,7 +9,7 @@
 import UIKit
 import PromiseKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Progressable, Alertable {
 
     // MARK: - IBOutlets -
 
@@ -45,14 +45,19 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        showProgressView()
+
         firstly {
             APIManager.getShows(with: _loginUser.token)
         }.done { [weak self] (shows: [Show]) in
             guard let `self` = self else { return }
             self._shows = shows
             self._tableView.reloadData()
-        }.catch { error in
-            print(error)
+        }.catch { [weak self] error in
+            self?.showAlertView(title: "Failed to fetch shows",
+                                message: "Failed to fetch shows, please check your internet connection.")
+        }.finally{ [weak self] in
+            self?.hideProgress()
         }
     }
 

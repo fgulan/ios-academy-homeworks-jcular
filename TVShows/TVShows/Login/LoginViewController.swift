@@ -120,7 +120,7 @@ class LoginViewController: UIViewController {
 
 }
 
-extension LoginViewController: Progressable {
+extension LoginViewController: Progressable, Alertable {
 
     // MARK: - Login user -
 
@@ -134,7 +134,8 @@ extension LoginViewController: Progressable {
             self._loginUser = loginUser
             self.presentHomeViewController(with: loginUser)
         }.catch { [weak self] error in
-            self?._showAlertWith(title: "Login failed", message: "Unable to login using provided email and password.")
+            self?.showAlertView(title: "Login failed",
+                                message: "Unable to login using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
     }
@@ -154,20 +155,12 @@ extension LoginViewController: Progressable {
             self._loginUser = loginUser
             self.presentHomeViewController(with: loginUser)
         }.catch { [weak self] error in
-            self?._showAlertWith(title: "Registration failed", message: "Unable to register using provided email and password.")
+            self?.showAlertView(title: "Registration failed",
+                                message: "Unable to register using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
         }
         
-    }
-
-    private func _showAlertWith(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
-        alertController.addAction(okAction)
-
-        self.present(alertController, animated: true)
     }
 
 }
