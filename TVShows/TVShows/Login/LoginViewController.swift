@@ -113,7 +113,7 @@ class LoginViewController: UIViewController {
 
     // MARK: - Navigation -
 
-    private func presentHomeViewController(with loginUser: LoginData) {
+    private func _presentHomeViewController(with loginUser: LoginData) {
         let homeViewController = HomeViewController.initFromStoryboard(with: loginUser)
         self.navigationController?.setViewControllers([homeViewController], animated: true)
     }
@@ -132,7 +132,7 @@ extension LoginViewController: Progressable, Alertable {
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
             self._loginUser = loginUser
-            self.presentHomeViewController(with: loginUser)
+            self._presentHomeViewController(with: loginUser)
         }.catch { [weak self] error in
             self?.showAlertView(title: "Login failed",
                                 message: "Unable to login using provided email and password.")
@@ -153,7 +153,7 @@ extension LoginViewController: Progressable, Alertable {
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
             self._loginUser = loginUser
-            self.presentHomeViewController(with: loginUser)
+            self._presentHomeViewController(with: loginUser)
         }.catch { [weak self] error in
             self?.showAlertView(title: "Registration failed",
                                 message: "Unable to register using provided email and password.")
