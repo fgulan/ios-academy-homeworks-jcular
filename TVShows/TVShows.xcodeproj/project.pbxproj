@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD233C1B21011C4F0017A5E6 /* Progressable.swift */; };
 		CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */; };
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
@@ -24,6 +25,7 @@
 		1AC5FC6214EFBFEDCE83D5E0 /* Pods-TVShows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TVShows/Pods-TVShows.debug.xcconfig"; sourceTree = "<group>"; };
 		5C0A244D58D05B794BCE0F0B /* Pods-TVShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.release.xcconfig"; path = "Pods/Target Support Files/Pods-TVShows/Pods-TVShows.release.xcconfig"; sourceTree = "<group>"; };
 		7595E7C63A278ED3E6C79C78 /* Pods_TVShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD233C1B21011C4F0017A5E6 /* Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progressable.swift; sourceTree = "<group>"; };
 		CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableAlamofire+Promise.swift"; sourceTree = "<group>"; };
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CD233C1A21011C3D0017A5E6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CD233C1B21011C4F0017A5E6 /* Progressable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		CD8493C920F2A1F900873A10 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		CDA07E2420EE6F44005118C8 /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				CD233C1A21011C3D0017A5E6 /* Common */,
 				CDE4E1E520FE82720099B515 /* API */,
 				CDC70A7620FE5C51004AF82E /* Home */,
 				CD8493C920F2A1F900873A10 /* Login */,
@@ -247,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */,
+				CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */,
 				CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */,
 				CDE4E1E720FE82920099B515 /* APIManager.swift in Sources */,
 				CDE4E1E420FE73BF0099B515 /* UserModel.swift in Sources */,
