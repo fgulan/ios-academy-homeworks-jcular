@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD233C1B21011C4F0017A5E6 /* Progressable.swift */; };
 		CD233C202105EC4F0017A5E6 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD233C1F2105EC4F0017A5E6 /* Alertable.swift */; };
+		CD31904321078C9C005A6517 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD31904221078C9C005A6517 /* Episode.swift */; };
 		CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */; };
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
@@ -30,6 +31,7 @@
 		7595E7C63A278ED3E6C79C78 /* Pods_TVShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD233C1B21011C4F0017A5E6 /* Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progressable.swift; sourceTree = "<group>"; };
 		CD233C1F2105EC4F0017A5E6 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		CD31904221078C9C005A6517 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableAlamofire+Promise.swift"; sourceTree = "<group>"; };
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				CDE4E1E320FE73BF0099B515 /* User.swift */,
 				CDEA240B20FFD8A600B8A60A /* Show.swift */,
+				CD31904221078C9C005A6517 /* Episode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */,
+				CD31904321078C9C005A6517 /* Episode.swift in Sources */,
 				CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */,
 				CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */,
 				CDE4E1E720FE82920099B515 /* APIManager.swift in Sources */,
