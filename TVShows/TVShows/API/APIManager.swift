@@ -14,7 +14,7 @@ import PromiseKit
 
 class APIManager {
 
-    public static func registerUserWith(email: String, password: String) -> Promise<User> {
+    public static func registerUser(withEmail email: String, password: String) -> Promise<User> {
         let parameters: [String: String] = [
             "email": email,
             "password": password
@@ -29,7 +29,7 @@ class APIManager {
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
-    public static func loginUserWith(email: String, password: String) -> Promise<LoginData>{
+    public static func loginUser(withEmail email: String, password: String) -> Promise<LoginData>{
         let parameters: [String: String] = [
             "email": email,
             "password": password
@@ -44,7 +44,7 @@ class APIManager {
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
-    public static func getShows(with token: String) -> Promise<[Show]> {
+    public static func getShows(withToken token: String) -> Promise<[Show]> {
 
         let headers = ["Authorization": token]
 

@@ -113,7 +113,7 @@ class LoginViewController: UIViewController {
 
     // MARK: - Navigation -
 
-    private func _presentHomeViewController(with loginUser: LoginData) {
+    private func _presentHomeViewController(withLoginUser loginUser: LoginData) {
         let homeViewController = HomeViewController.initFromStoryboard(with: loginUser)
         navigationController?.setViewControllers([homeViewController], animated: true)
     }
@@ -128,11 +128,11 @@ extension LoginViewController: Progressable, Alertable {
         showProgressView()
 
         firstly {
-            return APIManager.loginUserWith(email: email, password: password)
+            return APIManager.loginUser(withEmail: email, password: password)
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
             self._loginUser = loginUser
-            self._presentHomeViewController(with: loginUser)
+            self._presentHomeViewController(withLoginUser: loginUser)
         }.catch { [weak self] error in
             self?.showAlertView(title: "Login failed",
                                 message: "Unable to login using provided email and password.")
@@ -146,14 +146,14 @@ extension LoginViewController: Progressable, Alertable {
         showProgressView()
 
         firstly {
-            APIManager.registerUserWith(email: email, password: password)
+            APIManager.registerUser(withEmail: email, password: password)
         }.then{ [weak self] (user: User)-> Promise<LoginData> in
             self?._user = user
-            return APIManager.loginUserWith(email: email, password: password)
+            return APIManager.loginUser(withEmail: email, password: password)
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
             self._loginUser = loginUser
-            self._presentHomeViewController(with: loginUser)
+            self._presentHomeViewController(withLoginUser: loginUser)
         }.catch { [weak self] error in
             self?.showAlertView(title: "Registration failed",
                                 message: "Unable to register using provided email and password.")

@@ -53,7 +53,7 @@ extension HomeViewController: Progressable, Alertable {
         showProgressView()
 
         firstly {
-            APIManager.getShows(with: _loginUser.token)
+            APIManager.getShows(withToken: _loginUser.token)
             }.done { [weak self] (shows: [Show]) in
                 guard let `self` = self else { return }
                 self._shows = shows
