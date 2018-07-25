@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD233C1B21011C4F0017A5E6 /* Progressable.swift */; };
+		CD233C202105EC4F0017A5E6 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD233C1F2105EC4F0017A5E6 /* Alertable.swift */; };
 		CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */; };
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
@@ -16,8 +17,10 @@
 		CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */; };
 		CDC70A7820FE5C6F004AF82E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC70A7720FE5C6F004AF82E /* Home.storyboard */; };
 		CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */; };
-		CDE4E1E420FE73BF0099B515 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E1E320FE73BF0099B515 /* UserModel.swift */; };
+		CDE4E1E420FE73BF0099B515 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E1E320FE73BF0099B515 /* User.swift */; };
 		CDE4E1E720FE82920099B515 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E1E620FE82920099B515 /* APIManager.swift */; };
+		CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA240B20FFD8A600B8A60A /* Show.swift */; };
+		CDEA240E20FFDDA400B8A60A /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA240D20FFDDA400B8A60A /* ShowTableViewCell.swift */; };
 		D67BBFE0FC41A2D0CD985457 /* Pods_TVShows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7595E7C63A278ED3E6C79C78 /* Pods_TVShows.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +29,7 @@
 		5C0A244D58D05B794BCE0F0B /* Pods-TVShows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TVShows.release.xcconfig"; path = "Pods/Target Support Files/Pods-TVShows/Pods-TVShows.release.xcconfig"; sourceTree = "<group>"; };
 		7595E7C63A278ED3E6C79C78 /* Pods_TVShows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TVShows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD233C1B21011C4F0017A5E6 /* Progressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progressable.swift; sourceTree = "<group>"; };
+		CD233C1F2105EC4F0017A5E6 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableAlamofire+Promise.swift"; sourceTree = "<group>"; };
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -36,8 +40,10 @@
 		CDA07E3120EE6F45005118C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDC70A7720FE5C6F004AF82E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		CDE4E1E320FE73BF0099B515 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CDE4E1E320FE73BF0099B515 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CDE4E1E620FE82920099B515 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		CDEA240B20FFD8A600B8A60A /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		CDEA240D20FFDDA400B8A60A /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				CD233C1B21011C4F0017A5E6 /* Progressable.swift */,
+				CD233C1F2105EC4F0017A5E6 /* Alertable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -82,7 +89,6 @@
 			children = (
 				CD8493CA20F2A21B00873A10 /* Login.storyboard */,
 				CD8493CC20F2A24D00873A10 /* LoginViewController.swift */,
-				CDE4E1E320FE73BF0099B515 /* UserModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -109,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				CD233C1A21011C3D0017A5E6 /* Common */,
+				CDEA240A20FFD84600B8A60A /* Model */,
 				CDE4E1E520FE82720099B515 /* API */,
 				CDC70A7620FE5C51004AF82E /* Home */,
 				CD8493C920F2A1F900873A10 /* Login */,
@@ -125,6 +132,7 @@
 			children = (
 				CDC70A7720FE5C6F004AF82E /* Home.storyboard */,
 				CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */,
+				CDEA240D20FFDDA400B8A60A /* ShowTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -136,6 +144,15 @@
 				CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		CDEA240A20FFD84600B8A60A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CDE4E1E320FE73BF0099B515 /* User.swift */,
+				CDEA240B20FFD8A600B8A60A /* Show.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +278,11 @@
 				CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */,
 				CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */,
 				CDE4E1E720FE82920099B515 /* APIManager.swift in Sources */,
-				CDE4E1E420FE73BF0099B515 /* UserModel.swift in Sources */,
+				CD233C202105EC4F0017A5E6 /* Alertable.swift in Sources */,
+				CDE4E1E420FE73BF0099B515 /* User.swift in Sources */,
+				CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */,
 				CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */,
+				CDEA240E20FFDDA400B8A60A /* ShowTableViewCell.swift in Sources */,
 				CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

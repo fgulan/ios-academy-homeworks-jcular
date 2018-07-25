@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import CodableAlamofire
 import PromiseKit
 
 class LoginViewController: UIViewController {
@@ -113,9 +111,16 @@ class LoginViewController: UIViewController {
         _scrollView.scrollIndicatorInsets.bottom = 0
     }
 
+    // MARK: - Navigation -
+
+    private func _presentHomeViewController(with loginUser: LoginData) {
+        let homeViewController = HomeViewController.initFromStoryboard(with: loginUser)
+        navigationController?.setViewControllers([homeViewController], animated: true)
+    }
+
 }
 
-extension LoginViewController: Progressable {
+extension LoginViewController: Progressable, Alertable {
 
     // MARK: - Login user -
 
@@ -127,15 +132,15 @@ extension LoginViewController: Progressable {
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
             self._loginUser = loginUser
-            let homeViewController = HomeViewController.initFromStoryboard()
-            self.navigationController?.pushViewController(homeViewController, animated: true)
-        }.catch { error in
-            print("API error: \(error)")
+            self._presentHomeViewController(with: loginUser)
+        }.catch { [weak self] error in
+            self?.showAlertView(title: "Login failed",
+                                message: "Unable to login using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
     }
 
-    }
+}
 
     private func _registerUser(email: String, password: String) {
         showProgressView()
@@ -148,10 +153,10 @@ extension LoginViewController: Progressable {
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
             self._loginUser = loginUser
-            let homeViewController = HomeViewController.initFromStoryboard()
-            self.navigationController?.pushViewController(homeViewController, animated: true)
-        }.catch { error in
-            print("API error: \(error)")
+            self._presentHomeViewController(with: loginUser)
+        }.catch { [weak self] error in
+            self?.showAlertView(title: "Registration failed",
+                                message: "Unable to register using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
         }
