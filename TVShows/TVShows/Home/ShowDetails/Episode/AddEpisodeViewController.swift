@@ -9,27 +9,41 @@
 import UIKit
 
 class AddEpisodeViewController: UIViewController {
+    // MARK: - IBOutlets -
+
+    @IBOutlet weak var _scrollView: UIScrollView!
+    @IBOutlet weak var _episodeTitleTextField: UITextField!
+    @IBOutlet weak var _seasonNumberTextField: UITextField!
+    @IBOutlet weak var _episodeNumberTextField: UITextField!
+    @IBOutlet weak var _episodeDescriptionTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+    // MARK: - IBActions -
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction private func _didTapToHideKeyboard(_ sender: Any) {
+        if _episodeTitleTextField.isFirstResponder {
+            _episodeTitleTextField.resignFirstResponder()
+        }
+        if _seasonNumberTextField.isFirstResponder {
+            _seasonNumberTextField.resignFirstResponder()
+        }
+        if _episodeNumberTextField.isFirstResponder {
+            _episodeNumberTextField.resignFirstResponder()
+        }
+        if _episodeDescriptionTextField.isFirstResponder {
+            _episodeDescriptionTextField.resignFirstResponder()
+        }
     }
-    */
+
+    @IBAction private func _didTapUploadPhoto(_ sender: Any) {
+    }
+
+    }
 
 }
