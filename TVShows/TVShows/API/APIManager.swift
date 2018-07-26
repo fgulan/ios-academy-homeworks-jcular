@@ -57,6 +57,32 @@ class APIManager {
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
+    public static func getShowDetails(withToken token: String, showID: String) -> Promise<ShowDetails> {
+
+        let headers = ["Authorization": token]
+
+        return Alamofire
+            .request("\(_showsURL)/\(showID)",
+                     method: .get,
+                     encoding: JSONEncoding.default,
+                     headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
+    public static func getShowEpisodes(withToken token: String, showID: String) -> Promise<[Episode]> {
+
+        let headers = ["Authorization": token]
+
+        return Alamofire
+            .request("\(_showsURL)/\(showID)/episodes",
+                method: .get,
+                encoding: JSONEncoding.default,
+                headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
 }
 
 extension APIManager {
