@@ -83,6 +83,35 @@ class APIManager {
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
+    public static func addEpisode(withToken token: String,
+                                  showID: String,
+                                  mediaID: String?,
+                                  title: String?,
+                                  description: String?,
+                                  episodeNumber: String?,
+                                  season: String?) -> Promise<Episode> {
+
+        let headers = ["Authorization": token]
+
+        let parameters = ["showId": showID,
+                      "mediaId": mediaID,
+                      "title": title,
+                      "description": description,
+                      "episodeNumber": episodeNumber,
+                      "season": season
+        ]
+
+        return Alamofire
+            .request(_episodesURL,
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+
+    }
+
 }
 
 extension APIManager {
@@ -95,4 +124,5 @@ extension APIManager {
     private static let _registerUserURL = "\(_URL)/users"
 
     private static let _showsURL = "\(_URL)/shows"
+    private static let _episodesURL = "\(_URL)/episodes"
 }
