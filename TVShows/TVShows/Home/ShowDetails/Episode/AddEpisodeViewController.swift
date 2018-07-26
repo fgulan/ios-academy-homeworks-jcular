@@ -7,8 +7,20 @@
 //
 
 import UIKit
+import PromiseKit
 
-class AddEpisodeViewController: UIViewController {
+protocol AddEpisodeViewControllerDelegate: class {
+
+    func succesfullyAddedEpisode();
+
+}
+
+class AddEpisodeViewController: UIViewController, Alertable, Progressable {
+
+    // MARK: - Public properties -
+
+    public weak var delegate: AddEpisodeViewControllerDelegate?
+
     // MARK: - IBOutlets -
 
     @IBOutlet weak var _scrollView: UIScrollView!
@@ -33,9 +45,13 @@ class AddEpisodeViewController: UIViewController {
 
         return addEpisodeViewController
     }
+
+    // MARK: - Lifecycle -
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        _setupNavigationItem()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,8 +62,49 @@ class AddEpisodeViewController: UIViewController {
         super.viewWillDisappear(animated)
         _unregisterNotifications()
     }
+
+    private func _setupNavigationItem() {
+        let cancelButton = UIBarButtonItem(
+            barButtonSystemItem: .cancel,
+            target: self,
+            action: #selector(_didSelectCancel))
+        cancelButton.tintColor = UIColor.ts_pink
+        navigationItem.leftBarButtonItem = cancelButton
+
+        let addButton = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(_didSelectAddShow))
+        addButton.tintColor = UIColor.ts_pink
+        navigationItem.rightBarButtonItem = addButton
     }
 
+    @objc private func _didSelectAddShow() {
+        showProgressView()
+
+        firstly{ [weak self] in
+            APIManager.addEpisode(
+                withToken: _token,
+                showID: _showID,
+                mediaID: "",
+                title: self?._episodeNumberTextField.text,
+                description: self?._episodeDescriptionTextField.text,
+                episodeNumber: self?._episodeNumberTextField.text,
+                season: self?._seasonNumberTextField.text)
+        }.done { [weak self] (episode: Episode) in
+            guard let `self` = self else { return }
+            self.delegate?.succesfullyAddedEpisode()
+            self.navigationController?.dismiss(animated: true)
+        }.catch { [weak self] error in
+            self?.showAlertView(title: "Unable to add episode",
+                                message: "Unable to add episode please check your internet connection.")
+        }.finally { [weak self] in
+            self?.hideProgress()
+        }
+    }
+
+    @objc private func _didSelectCancel() {
+        navigationController?.dismiss(animated: true)
     }
 
     // MARK: - IBActions -
