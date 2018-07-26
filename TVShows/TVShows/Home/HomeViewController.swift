@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     // MARK: - Private properties -
 
     private var _loginUser: LoginData!
-    private var _shows: [Show]?
+    private var _shows: [Show] = []
 
     // MARK: - Init -
 
@@ -37,10 +37,6 @@ class HomeViewController: UIViewController {
     }
 
     // MARK: - Lifecycle -
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -84,14 +80,13 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            _shows?.remove(at: indexPath.row)
+            _shows.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let shows = _shows else { return 0}
-        return shows.count
+        return _shows.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,9 +95,7 @@ extension HomeViewController: UITableViewDataSource {
             for: indexPath
         ) as! ShowTableViewCell
 
-        if let shows = _shows {
-            cell.configure(show: shows[indexPath.row])
-        }
+        cell.configure(show: _shows[indexPath.row])
 
         return cell
     }

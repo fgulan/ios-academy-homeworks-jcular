@@ -14,27 +14,16 @@ class ShowTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var _showTitleLabel: UILabel!
 
-    // MARK: - Private properties -
-
-    private var _show: Show?
-
     // MARK: - Lifecycle -
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-
     override func prepareForReuse() {
-        _show = nil
+        super.prepareForReuse()
         _showTitleLabel.text = nil
     }
 
     // MARK: - Public -
 
     public func configure(show: Show) {
-        _show = show
         _showTitleLabel.text = show.title
     }
 
