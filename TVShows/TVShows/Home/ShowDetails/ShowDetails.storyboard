@@ -145,7 +145,7 @@
                                 <rect key="frame" x="10" y="30" width="32" height="32"/>
                                 <state key="normal" image="ic-navigate-back"/>
                                 <connections>
-                                    <action selector="didTapBackButton:" destination="moz-eE-aGa" eventType="touchUpInside" id="WuL-DJ-dvI"/>
+                                    <action selector="_didTapBackButton:" destination="moz-eE-aGa" eventType="touchUpInside" id="WuL-DJ-dvI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="486-hu-dPQ">

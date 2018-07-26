@@ -60,7 +60,7 @@ class ShowDetailsViewController: UIViewController {
 
     // MARK: - IBActions -
 
-    @IBAction private func didTapBackButton(_ sender: Any) {
+    @IBAction private func _didTapBackButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 
@@ -73,7 +73,7 @@ extension ShowDetailsViewController: Progressable, Alertable {
 
     // MARK: - Data loading -
 
-    func _loadShowData(withToken token: String, showID: String) {
+    private func _loadShowData(withToken token: String, showID: String) {
         showProgressView()
 
         firstly {
@@ -105,14 +105,14 @@ extension ShowDetailsViewController: UITableViewDelegate {
 
 extension ShowDetailsViewController: UITableViewDataSource {
 
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete && indexPath.row > 2 {
             _episodes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 
-    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         switch indexPath.row {
         case 0, 1:
             return .none
@@ -121,11 +121,11 @@ extension ShowDetailsViewController: UITableViewDataSource {
         }
     }
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return _episodes.count + 2
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         switch indexPath.row {
             case 0:

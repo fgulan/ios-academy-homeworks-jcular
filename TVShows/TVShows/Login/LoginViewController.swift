@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    @IBAction func _didTapLogInButton(_ sender: Any) {
+    @IBAction private func _didTapLogInButton(_ sender: Any) {
         guard
             let email = _emailTextField.text,
             let password = _passwordTextField.text
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
         _loginUser(email: email, password: password)
     }
 
-    @IBAction func _didTapCreateAccountButton(_ sender: Any) {
+    @IBAction private func _didTapCreateAccountButton(_ sender: Any) {
         guard
             let email = _emailTextField.text,
             let password = _passwordTextField.text
