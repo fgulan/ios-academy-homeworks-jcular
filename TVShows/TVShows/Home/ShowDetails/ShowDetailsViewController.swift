@@ -43,6 +43,7 @@ class ShowDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        _loadShowData(withToken: _token, showID: _showID)
         _tableView.rowHeight = UITableViewAutomaticDimension
         _tableView.estimatedRowHeight = 300
     }
@@ -50,11 +51,10 @@ class ShowDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-        _loadShowData(withToken: _token, showID: _showID)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
