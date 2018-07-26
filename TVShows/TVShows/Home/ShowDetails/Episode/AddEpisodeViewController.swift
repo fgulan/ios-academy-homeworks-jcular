@@ -87,7 +87,7 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
                 withToken: _token,
                 showID: _showID,
                 mediaID: "",
-                title: self?._episodeNumberTextField.text,
+                title: self?._episodeTitleTextField.text,
                 description: self?._episodeDescriptionTextField.text,
                 episodeNumber: self?._episodeNumberTextField.text,
                 season: self?._seasonNumberTextField.text)
