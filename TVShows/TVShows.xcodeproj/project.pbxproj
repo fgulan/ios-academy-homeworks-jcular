@@ -12,6 +12,9 @@
 		CD31903F21078A4E005A6517 /* ShowDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD31903E21078A4E005A6517 /* ShowDetails.storyboard */; };
 		CD31904121078A5D005A6517 /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD31904021078A5D005A6517 /* ShowDetailsViewController.swift */; };
 		CD31904321078C9C005A6517 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD31904221078C9C005A6517 /* Episode.swift */; };
+		CD319046210796B0005A6517 /* ShowImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD319045210796B0005A6517 /* ShowImageTableViewCell.swift */; };
+		CD319048210796C3005A6517 /* ShowDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD319047210796C3005A6517 /* ShowDescriptionTableViewCell.swift */; };
+		CD31904A210796CF005A6517 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD319049210796CF005A6517 /* EpisodeTableViewCell.swift */; };
 		CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */; };
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
@@ -36,6 +39,9 @@
 		CD31903E21078A4E005A6517 /* ShowDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowDetails.storyboard; sourceTree = "<group>"; };
 		CD31904021078A5D005A6517 /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsViewController.swift; sourceTree = "<group>"; };
 		CD31904221078C9C005A6517 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		CD319045210796B0005A6517 /* ShowImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageTableViewCell.swift; sourceTree = "<group>"; };
+		CD319047210796C3005A6517 /* ShowDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		CD319049210796CF005A6517 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableAlamofire+Promise.swift"; sourceTree = "<group>"; };
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -93,10 +99,21 @@
 		CD31903D21078A3C005A6517 /* ShowDetails */ = {
 			isa = PBXGroup;
 			children = (
+				CD31904421079675005A6517 /* TableViewCells */,
 				CD31903E21078A4E005A6517 /* ShowDetails.storyboard */,
 				CD31904021078A5D005A6517 /* ShowDetailsViewController.swift */,
 			);
 			path = ShowDetails;
+			sourceTree = "<group>";
+		};
+		CD31904421079675005A6517 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				CD319045210796B0005A6517 /* ShowImageTableViewCell.swift */,
+				CD319047210796C3005A6517 /* ShowDescriptionTableViewCell.swift */,
+				CD319049210796CF005A6517 /* EpisodeTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		CD8493C920F2A1F900873A10 /* Login */ = {
@@ -295,15 +312,18 @@
 				CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */,
 				CD31904321078C9C005A6517 /* Episode.swift in Sources */,
 				CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */,
+				CD31904A210796CF005A6517 /* EpisodeTableViewCell.swift in Sources */,
 				CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */,
 				CDE4E1E720FE82920099B515 /* APIManager.swift in Sources */,
 				CD31904121078A5D005A6517 /* ShowDetailsViewController.swift in Sources */,
+				CD319046210796B0005A6517 /* ShowImageTableViewCell.swift in Sources */,
 				CD233C202105EC4F0017A5E6 /* Alertable.swift in Sources */,
 				CDE4E1E420FE73BF0099B515 /* User.swift in Sources */,
 				CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */,
 				CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */,
 				CDEA240E20FFDDA400B8A60A /* ShowTableViewCell.swift in Sources */,
 				CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */,
+				CD319048210796C3005A6517 /* ShowDescriptionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
