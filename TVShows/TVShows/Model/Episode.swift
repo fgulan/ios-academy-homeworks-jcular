@@ -10,12 +10,20 @@ import Foundation
 
 struct Episode: Codable {
     let title: String
+    let type: String?
+    let showID: String?
     let description: String
-    let imageURL: URL
+    let episodeNumber: String?
+    let season: String?
+    let imageURL: String
     let id: String
     enum CodingKeys: String, CodingKey {
-        case description
         case title
+        case type
+        case showID = "showId"
+        case description
+        case episodeNumber
+        case season
         case imageURL = "imageUrl"
         case id = "_id"
     }

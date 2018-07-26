@@ -27,8 +27,7 @@ class EpisodeTableViewCell: UITableViewCell {
 
     public func configure(episode: Episode) {
         _episodeTitleLabel.text = episode.title
-        // TODO: API doesn't return this property shown in the design.
-        _episodeMarkLabel.text = "S0 Ep0"
+        _episodeMarkLabel.text = "S\(episode.season ?? "0") Ep\(episode.episodeNumber ?? "0")"
     }
 
 }
