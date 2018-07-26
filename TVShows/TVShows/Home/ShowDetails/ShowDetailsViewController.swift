@@ -65,6 +65,12 @@ class ShowDetailsViewController: UIViewController {
     }
 
     @IBAction private func _didTapAddEpisode(_ sender: Any) {
+        let addEpisodeViewController = AddEpisodeViewController.initFromStoryboard(withToken: _token, showID: _showID)
+        addEpisodeViewController.delegate = self
+
+        let navigationController = UINavigationController.init(rootViewController: addEpisodeViewController)
+
+        present(navigationController, animated: true, completion: nil)
     }
 
 }
