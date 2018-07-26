@@ -17,6 +17,22 @@ class AddEpisodeViewController: UIViewController {
     @IBOutlet weak var _episodeNumberTextField: UITextField!
     @IBOutlet weak var _episodeDescriptionTextField: UITextField!
 
+    // MARK: - Private properties -
+
+    private var _token: String!
+    private var _showID: String!
+
+    // MARK: - Init -
+
+    public class func initFromStoryboard(withToken token: String, showID: String) -> AddEpisodeViewController {
+        let addEpisodeStoryboard = UIStoryboard(name: "AddEpisode", bundle: nil)
+        let addEpisodeViewController = addEpisodeStoryboard.instantiateInitialViewController() as! AddEpisodeViewController
+        addEpisodeViewController._token = token
+        addEpisodeViewController._showID = showID
+        addEpisodeViewController.title = "Add episode"
+
+        return addEpisodeViewController
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
