@@ -163,3 +163,14 @@ extension ShowDetailsViewController: UITableViewDataSource {
     }
 
 }
+
+
+// MARK: - AddEpisodeViewControllerDelegate -
+
+extension ShowDetailsViewController: AddEpisodeViewControllerDelegate {
+
+    func succesfullyAddedEpisode() {
+        _loadShowData(withToken: _token, showID: _showID)
+    }
+
+}
