@@ -17,6 +17,7 @@
 		CD31904A210796CF005A6517 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD319049210796CF005A6517 /* EpisodeTableViewCell.swift */; };
 		CD31904D2109C98C005A6517 /* AddEpisode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD31904C2109C98C005A6517 /* AddEpisode.storyboard */; };
 		CD31904F2109C99D005A6517 /* AddEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD31904E2109C99D005A6517 /* AddEpisodeViewController.swift */; };
+		CD3190512109DDF5005A6517 /* UIColor+TVShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */; };
 		CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */; };
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
@@ -46,6 +47,7 @@
 		CD319049210796CF005A6517 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		CD31904C2109C98C005A6517 /* AddEpisode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEpisode.storyboard; sourceTree = "<group>"; };
 		CD31904E2109C99D005A6517 /* AddEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEpisodeViewController.swift; sourceTree = "<group>"; };
+		CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+TVShows.swift"; sourceTree = "<group>"; };
 		CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableAlamofire+Promise.swift"; sourceTree = "<group>"; };
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				CD233C1B21011C4F0017A5E6 /* Progressable.swift */,
 				CD233C1F2105EC4F0017A5E6 /* Alertable.swift */,
+				CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				CDEA240E20FFDDA400B8A60A /* ShowTableViewCell.swift in Sources */,
 				CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */,
 				CD319048210796C3005A6517 /* ShowDescriptionTableViewCell.swift in Sources */,
+				CD3190512109DDF5005A6517 /* UIColor+TVShows.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
