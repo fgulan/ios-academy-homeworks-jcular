@@ -14,7 +14,7 @@ import PromiseKit
 
 class APIManager {
 
-    public static func registerUserWith(email: String, password: String) -> Promise<User> {
+    public static func registerUser(withEmail email: String, password: String) -> Promise<User> {
         let parameters: [String: String] = [
             "email": email,
             "password": password
@@ -29,7 +29,7 @@ class APIManager {
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
-    public static func loginUserWith(email: String, password: String) -> Promise<LoginData>{
+    public static func loginUser(withEmail email: String, password: String) -> Promise<LoginData>{
         let parameters: [String: String] = [
             "email": email,
             "password": password
@@ -44,7 +44,7 @@ class APIManager {
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
-    public static func getShows(with token: String) -> Promise<[Show]> {
+    public static func getShows(withToken token: String) -> Promise<[Show]> {
 
         let headers = ["Authorization": token]
 
@@ -55,6 +55,61 @@ class APIManager {
                         headers: headers)
             .validate()
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
+    public static func getShowDetails(withToken token: String, showID: String) -> Promise<ShowDetails> {
+
+        let headers = ["Authorization": token]
+
+        return Alamofire
+            .request("\(_showsURL)/\(showID)",
+                     method: .get,
+                     encoding: JSONEncoding.default,
+                     headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
+    public static func getShowEpisodes(withToken token: String, showID: String) -> Promise<[Episode]> {
+
+        let headers = ["Authorization": token]
+
+        return Alamofire
+            .request("\(_showsURL)/\(showID)/episodes",
+                method: .get,
+                encoding: JSONEncoding.default,
+                headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
+    public static func addEpisode(withToken token: String,
+                                  showID: String,
+                                  mediaID: String?,
+                                  title: String?,
+                                  description: String?,
+                                  episodeNumber: String?,
+                                  season: String?) -> Promise<Episode> {
+
+        let headers = ["Authorization": token]
+
+        let parameters = ["showId": showID,
+                      "mediaId": mediaID,
+                      "title": title,
+                      "description": description,
+                      "episodeNumber": episodeNumber,
+                      "season": season
+        ]
+
+        return Alamofire
+            .request(_episodesURL,
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding.default,
+                headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+
     }
 
 }
@@ -69,4 +124,5 @@ extension APIManager {
     private static let _registerUserURL = "\(_URL)/users"
 
     private static let _showsURL = "\(_URL)/shows"
+    private static let _episodesURL = "\(_URL)/episodes"
 }

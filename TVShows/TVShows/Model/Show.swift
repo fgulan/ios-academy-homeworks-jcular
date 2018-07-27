@@ -16,3 +16,20 @@ struct Show: Codable {
         case id = "_id"
     }
 }
+
+struct ShowDetails: Codable {
+    let title: String
+    let type: String
+    let description: String
+    let likes: Int
+    let imageURL: URL
+    let id: String
+    enum CodingKeys: String, CodingKey {
+        case type
+        case description
+        case title
+        case likes = "likesCount"
+        case imageURL = "imageUrl"
+        case id = "_id"
+    }
+}

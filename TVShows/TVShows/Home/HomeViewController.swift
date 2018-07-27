@@ -53,7 +53,7 @@ extension HomeViewController: Progressable, Alertable {
         showProgressView()
 
         firstly {
-            APIManager.getShows(with: _loginUser.token)
+            APIManager.getShows(withToken: _loginUser.token)
             }.done { [weak self] (shows: [Show]) in
                 guard let `self` = self else { return }
                 self._shows = shows
@@ -72,6 +72,13 @@ extension HomeViewController: Progressable, Alertable {
 
 extension HomeViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let show = _shows[indexPath.row]
+
+        let showDetailsViewController = ShowDetailsViewController.initFromStoryboard(withToken: _loginUser.token, showID: show.id)
+        navigationController?.show(showDetailsViewController, sender: self)
+    }
+
 }
 
 // MARK: - UITableViewDataSource -
@@ -85,11 +92,11 @@ extension HomeViewController: UITableViewDataSource {
         }
     }
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return _shows.count
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "ShowTableViewCell",
             for: indexPath
