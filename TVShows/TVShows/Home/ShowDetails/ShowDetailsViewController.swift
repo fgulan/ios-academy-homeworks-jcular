@@ -17,6 +17,11 @@ class ShowDetailsViewController: UIViewController {
         didSet {
             _tableView.delegate = self
             _tableView.dataSource = self
+
+            _loadShowData(withToken: _token, showID: _showID)
+
+            _tableView.rowHeight = UITableViewAutomaticDimension
+            _tableView.estimatedRowHeight = 300
         }
     }
     
@@ -39,14 +44,6 @@ class ShowDetailsViewController: UIViewController {
     }
 
     // MARK: - Lifeciycle -
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        _loadShowData(withToken: _token, showID: _showID)
-        _tableView.rowHeight = UITableViewAutomaticDimension
-        _tableView.estimatedRowHeight = 300
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
