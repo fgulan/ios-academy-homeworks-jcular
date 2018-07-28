@@ -73,8 +73,9 @@ extension HomeViewController: Progressable, Alertable {
 extension HomeViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let show = _shows[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
 
+        let show = _shows[indexPath.row]
         let showDetailsViewController = ShowDetailsViewController.initFromStoryboard(withToken: _loginUser.token, showID: show.id)
         navigationController?.show(showDetailsViewController, sender: self)
     }
