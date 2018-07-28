@@ -41,7 +41,6 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
         let addEpisodeViewController = addEpisodeStoryboard.instantiateInitialViewController() as! AddEpisodeViewController
         addEpisodeViewController._token = token
         addEpisodeViewController._showID = showID
-        addEpisodeViewController.title = "Add episode"
 
         return addEpisodeViewController
     }
@@ -51,6 +50,7 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
     override func viewDidLoad() {
         super.viewDidLoad()
         _setupNavigationItem()
+        title = "Add episode"
     }
 
     override func viewWillAppear(_ animated: Bool) {
