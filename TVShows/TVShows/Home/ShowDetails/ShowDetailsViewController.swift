@@ -116,7 +116,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
             return []
         }
         let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { [weak self] (action, indexPath) in
-            self?._episodes.remove(at: indexPath.row)
+            self?._episodes.remove(at: indexPath.row - 2)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         return [deleteButton]
