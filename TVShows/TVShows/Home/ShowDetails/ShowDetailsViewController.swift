@@ -13,6 +13,8 @@ class ShowDetailsViewController: UIViewController {
 
     // MARK: - IBOutlets -
 
+    @IBOutlet private weak var _addButton: UIButton!
+    @IBOutlet private weak var _addButtonBottomConstraints: NSLayoutConstraint!
     @IBOutlet private weak var _tableView: UITableView! {
         didSet {
             _tableView.delegate = self
@@ -22,6 +24,7 @@ class ShowDetailsViewController: UIViewController {
 
             _tableView.rowHeight = UITableViewAutomaticDimension
             _tableView.estimatedRowHeight = 300
+            _tableView.contentInset.bottom = _addButton.frame.size.height + _addButtonBottomConstraints.constant
         }
     }
     

@@ -170,6 +170,8 @@
                         <viewLayoutGuide key="safeArea" id="Qtr-pU-Oqv"/>
                     </view>
                     <connections>
+                        <outlet property="_addButton" destination="486-hu-dPQ" id="J4x-BV-jgN"/>
+                        <outlet property="_addButtonBottomConstraints" destination="5u2-1f-LUW" id="zNa-0N-tUT"/>
                         <outlet property="_tableView" destination="lwv-AS-K0M" id="tcc-9r-AST"/>
                     </connections>
                 </viewController>
