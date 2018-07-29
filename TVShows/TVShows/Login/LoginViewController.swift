@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        _loginIfUserRemembered()
         _logInButton.layer.cornerRadius = 5.0
     }
 
@@ -131,6 +131,7 @@ extension LoginViewController: Progressable, Alertable {
             return APIManager.loginUser(withEmail: email, password: password)
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
+            self._rememberUserIfNeeded()
             self._loginUser = loginUser
             self._presentHomeViewController(withLoginUser: loginUser)
         }.catch { [weak self] error in
@@ -138,9 +139,8 @@ extension LoginViewController: Progressable, Alertable {
                                 message: "Unable to login using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
+        }
     }
-
-}
 
     private func _registerUser(email: String, password: String) {
         showProgressView()
@@ -152,6 +152,7 @@ extension LoginViewController: Progressable, Alertable {
             return APIManager.loginUser(withEmail: email, password: password)
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
+            self._rememberUserIfNeeded()
             self._loginUser = loginUser
             self._presentHomeViewController(withLoginUser: loginUser)
         }.catch { [weak self] error in
@@ -160,7 +161,21 @@ extension LoginViewController: Progressable, Alertable {
         }.finally { [weak self] in
             self?.hideProgress()
         }
-        
+    }
+
+    private func _rememberUserIfNeeded() {
+        if _rememberMeCheckmark.isSelected {
+            UserDefaults.tv_userEmail = self._emailTextField.text
+            UserDefaults.tv_userPassword = self._passwordTextField.text
+        }
+    }
+
+    private func _loginIfUserRemembered() {
+        guard
+            let email = UserDefaults.tv_userEmail,
+            let password = UserDefaults.tv_userPassword
+        else { return }
+        _loginUser(email: email, password: password)
     }
 
 }
