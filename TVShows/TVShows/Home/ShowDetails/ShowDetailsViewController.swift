@@ -53,8 +53,8 @@ class ShowDetailsViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
@@ -134,11 +134,9 @@ extension ShowDetailsViewController: UITableViewDataSource {
                     withIdentifier: "ShowImageTableViewCell",
                     for: indexPath
                     ) as! ShowImageTableViewCell
-                // TODO: remove Image placeholder, use image url from ShowDetails
-                if let image = UIImage(named: "img-placeholder-user1") {
-                    cell.configure(image: image)
+                if let showDetails = _showDetails {
+                    cell.configure(imageResource: showDetails.imageURL)
                 }
-
                 cell.selectionStyle = .none
                 return cell
             case 1:
