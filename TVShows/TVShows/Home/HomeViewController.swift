@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
         didSet {
             _tableView.delegate = self
             _tableView.dataSource = self
+
+            _loadShows()
         }
     }
 
@@ -38,9 +40,25 @@ class HomeViewController: UIViewController {
 
     // MARK: - Lifecycle -
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let logoutItem = UIBarButtonItem.init(image: UIImage(named:
+            "ic-logout"),
+                                              style: .plain,
+                                              target: self,
+                                              action: #selector(_didSelectLogout))
+        navigationItem.leftBarButtonItem = logoutItem
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        _loadShows()
+    }
+
+    @objc private func _didSelectLogout() {
+        UserDefaults.clearUserCredidentials()
+        let loginViewController = LoginViewController.initFromStroyboard()
+        navigationController?.setViewControllers([loginViewController], animated: true)
     }
 
 }

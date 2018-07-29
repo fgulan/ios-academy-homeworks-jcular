@@ -24,6 +24,14 @@ class LoginViewController: UIViewController {
     private var _user: User?
     private var _loginUser: LoginData?
 
+    // MARK: - Init -
+
+    public static func initFromStroyboard() -> LoginViewController {
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        return loginViewController
+    }
+
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
