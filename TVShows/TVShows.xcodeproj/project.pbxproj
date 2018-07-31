@@ -19,6 +19,7 @@
 		CD31904F2109C99D005A6517 /* AddEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD31904E2109C99D005A6517 /* AddEpisodeViewController.swift */; };
 		CD3190512109DDF5005A6517 /* UIColor+TVShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */; };
 		CD319055210D390C005A6517 /* UserDefaults+TVShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD319054210D390C005A6517 /* UserDefaults+TVShows.swift */; };
+		CD319057210DFE14005A6517 /* ShowListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD319056210DFE14005A6517 /* ShowListCollectionViewCell.swift */; };
 		CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */; };
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
@@ -30,7 +31,7 @@
 		CDE4E1E420FE73BF0099B515 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E1E320FE73BF0099B515 /* User.swift */; };
 		CDE4E1E720FE82920099B515 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4E1E620FE82920099B515 /* APIManager.swift */; };
 		CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA240B20FFD8A600B8A60A /* Show.swift */; };
-		CDEA240E20FFDDA400B8A60A /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA240D20FFDDA400B8A60A /* ShowTableViewCell.swift */; };
+		CDEA240E20FFDDA400B8A60A /* ShowGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA240D20FFDDA400B8A60A /* ShowGridCollectionViewCell.swift */; };
 		D67BBFE0FC41A2D0CD985457 /* Pods_TVShows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7595E7C63A278ED3E6C79C78 /* Pods_TVShows.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		CD31904E2109C99D005A6517 /* AddEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEpisodeViewController.swift; sourceTree = "<group>"; };
 		CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+TVShows.swift"; sourceTree = "<group>"; };
 		CD319054210D390C005A6517 /* UserDefaults+TVShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+TVShows.swift"; sourceTree = "<group>"; };
+		CD319056210DFE14005A6517 /* ShowListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableAlamofire+Promise.swift"; sourceTree = "<group>"; };
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		CDE4E1E320FE73BF0099B515 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CDE4E1E620FE82920099B515 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		CDEA240B20FFD8A600B8A60A /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		CDEA240D20FFDDA400B8A60A /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
+		CDEA240D20FFDDA400B8A60A /* ShowGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGridCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,15 @@
 			path = Episode;
 			sourceTree = "<group>";
 		};
+		CD31905821110132005A6517 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA240D20FFDDA400B8A60A /* ShowGridCollectionViewCell.swift */,
+				CD319056210DFE14005A6517 /* ShowListCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		CD8493C920F2A1F900873A10 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +196,7 @@
 				CD31903D21078A3C005A6517 /* ShowDetails */,
 				CDC70A7720FE5C6F004AF82E /* Home.storyboard */,
 				CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */,
-				CDEA240D20FFDDA400B8A60A /* ShowTableViewCell.swift */,
+				CD31905821110132005A6517 /* CollectionViewCell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -332,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD319057210DFE14005A6517 /* ShowListCollectionViewCell.swift in Sources */,
 				CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */,
 				CD31904321078C9C005A6517 /* Episode.swift in Sources */,
 				CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */,
@@ -346,7 +358,7 @@
 				CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */,
 				CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */,
 				CD319055210D390C005A6517 /* UserDefaults+TVShows.swift in Sources */,
-				CDEA240E20FFDDA400B8A60A /* ShowTableViewCell.swift in Sources */,
+				CDEA240E20FFDDA400B8A60A /* ShowGridCollectionViewCell.swift in Sources */,
 				CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */,
 				CD319048210796C3005A6517 /* ShowDescriptionTableViewCell.swift in Sources */,
 				CD3190512109DDF5005A6517 /* UIColor+TVShows.swift in Sources */,
