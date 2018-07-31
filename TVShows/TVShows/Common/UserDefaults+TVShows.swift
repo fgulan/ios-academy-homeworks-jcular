@@ -12,6 +12,7 @@ extension UserDefaults {
 
     private static let passwordKey = "tvshows.password"
     private static let emailKey = "tvshows.email"
+    private static let _shouldUseGridKey = "tvshows.shouldUseGrid"
 
     public static var tv_userPassword: String? {
         set {
@@ -40,6 +41,18 @@ extension UserDefaults {
     public static func clearUserCredidentials() {
         UserDefaults.standard.removeObject(forKey: emailKey)
         UserDefaults.standard.removeObject(forKey: passwordKey)
+    // MARK: - HomeViewController Layout -
+
+    public static var tv_shouldUseGrid: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaults._shouldUseGridKey)
+        }
+        get {
+            guard
+                let _shouldUseGridKey = UserDefaults.standard.value(forKey: UserDefaults._shouldUseGridKey) as? Bool
+                else { return true }
+            return _shouldUseGridKey
+        }
     }
 
 }
