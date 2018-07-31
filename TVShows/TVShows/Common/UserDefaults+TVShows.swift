@@ -10,17 +10,21 @@ import Foundation
 
 extension UserDefaults {
 
-    private static let passwordKey = "tvshows.password"
-    private static let emailKey = "tvshows.email"
+    // MARK: - Keys -
+
+    private static let _passwordKey = "tvshows.password"
+    private static let _emailKey = "tvshows.email"
     private static let _shouldUseGridKey = "tvshows.shouldUseGrid"
+
+    // MARK: - User login -
 
     public static var tv_userPassword: String? {
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaults.passwordKey)
+            UserDefaults.standard.set(newValue, forKey: UserDefaults._passwordKey)
         }
         get {
             guard
-                let password = UserDefaults.standard.value(forKey: UserDefaults.passwordKey) as? String
+                let password = UserDefaults.standard.value(forKey: UserDefaults._passwordKey) as? String
             else { return nil }
             return password
         }
@@ -28,19 +32,21 @@ extension UserDefaults {
 
     public static var tv_userEmail: String? {
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaults.emailKey)
+            UserDefaults.standard.set(newValue, forKey: UserDefaults._emailKey)
         }
         get {
             guard
-                let email = UserDefaults.standard.value(forKey: UserDefaults.emailKey) as? String
+                let email = UserDefaults.standard.value(forKey: UserDefaults._emailKey) as? String
                 else { return nil }
             return email
         }
     }
 
     public static func clearUserCredidentials() {
-        UserDefaults.standard.removeObject(forKey: emailKey)
-        UserDefaults.standard.removeObject(forKey: passwordKey)
+        UserDefaults.standard.removeObject(forKey: _emailKey)
+        UserDefaults.standard.removeObject(forKey: _passwordKey)
+    }
+
     // MARK: - HomeViewController Layout -
 
     public static var tv_shouldUseGrid: Bool {
