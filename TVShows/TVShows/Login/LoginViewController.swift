@@ -71,6 +71,15 @@ class LoginViewController: UIViewController {
             let password = _passwordTextField.text
         else { return }
 
+        if (email == "") {
+            _shakeTextField(textField: _emailTextField)
+            return
+        }
+        if (password == "") {
+            _shakeTextField(textField: _passwordTextField)
+            return
+        }
+
         _loginUser(email: email, password: password)
     }
 
@@ -79,6 +88,15 @@ class LoginViewController: UIViewController {
             let email = _emailTextField.text,
             let password = _passwordTextField.text
         else { return }
+
+        if (email == "") {
+            _shakeTextField(textField: _emailTextField)
+            return
+        }
+        if (password == "") {
+            _shakeTextField(textField: _passwordTextField)
+            return
+        }
 
         _registerUser(email: email, password: password)
     }
@@ -126,6 +144,33 @@ class LoginViewController: UIViewController {
         navigationController?.setViewControllers([homeViewController], animated: true)
     }
 
+    // MARK: - Animations -
+
+    private func _shakeTextField(textField: UITextField) {
+        let keyPath = "position"
+//        textField.layer.removeAnimation(forKey: keyPath)
+
+        let animation = CABasicAnimation(keyPath: keyPath)
+        animation.duration = 0.05
+        animation.repeatCount = 3
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: textField.center.x - 5, y: textField.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: textField.center.x + 5, y: textField.center.y))
+
+        textField.layer.add(animation, forKey: keyPath)
+    }
+
+    private func _pulseButton(button: UIButton) {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0,
+                       options: [.autoreverse, .curveEaseOut],
+                       animations: {
+                        button.backgroundColor = UIColor.red
+        }) { (finished) in
+            button.backgroundColor = UIColor.ts_pink
+        }
+    }
+
 }
 
 extension LoginViewController: Progressable, Alertable {
@@ -143,8 +188,10 @@ extension LoginViewController: Progressable, Alertable {
             self._loginUser = loginUser
             self._presentHomeViewController(withLoginUser: loginUser)
         }.catch { [weak self] error in
-            self?.showAlertView(title: "Login failed",
-                                message: "Unable to login using provided email and password.")
+            guard let `self` = self else { return }
+            self._pulseButton(button: self._logInButton)
+            self.showAlertView(title: "Login failed",
+                               message: "Unable to login using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
         }
