@@ -106,9 +106,12 @@ extension ShowDetailsViewController: Progressable, Alertable {
 extension ShowDetailsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row > 1 else {
+            return
+        }
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let episode = _episodes[indexPath.row]
+        let episode = _episodes[indexPath.row - 2]
         let episodeDetailsViewController = EpisodeDetailsViewController.initFromStoryboard(withToken: _token, episodeID: episode.id)
         navigationController?.show(episodeDetailsViewController, sender: self)
     }
