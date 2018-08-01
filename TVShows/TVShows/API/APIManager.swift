@@ -83,6 +83,19 @@ class APIManager {
             .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
     }
 
+    public static func getEpisode(withToken token: String, episodeID: String) -> Promise<Episode> {
+
+        let headers = ["Authorization": token]
+
+        return Alamofire
+            .request("\(_episodesURL)/\(episodeID)",
+                method: .get,
+                encoding: JSONEncoding.default,
+                headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
     public static func addEpisode(withToken token: String,
                                   showID: String,
                                   mediaID: String?,
