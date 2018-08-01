@@ -106,10 +106,10 @@
 		CD233C1A21011C3D0017A5E6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CD233C1B21011C4F0017A5E6 /* Progressable.swift */,
-				CD233C1F2105EC4F0017A5E6 /* Alertable.swift */,
-				CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */,
-				CD319054210D390C005A6517 /* UserDefaults+TVShows.swift */,
+				CDE4E1E520FE82720099B515 /* API */,
+				CD9BB7FA211255AB0016D6C7 /* Extensions */,
+				CD9BB7F92112559F0016D6C7 /* Protocols */,
+				CDEA240A20FFD84600B8A60A /* Model */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -117,8 +117,6 @@
 		CD31903D21078A3C005A6517 /* ShowDetails */ = {
 			isa = PBXGroup;
 			children = (
-				CD9BB7F421124AA20016D6C7 /* EpisodeDetails */,
-				CD31904B2109C975005A6517 /* AddEpisode */,
 				CD31904421079675005A6517 /* TableViewCells */,
 				CD31903E21078A4E005A6517 /* ShowDetails.storyboard */,
 				CD31904021078A5D005A6517 /* ShowDetailsViewController.swift */,
@@ -172,6 +170,55 @@
 			path = EpisodeDetails;
 			sourceTree = "<group>";
 		};
+		CD9BB7F92112559F0016D6C7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CD233C1B21011C4F0017A5E6 /* Progressable.swift */,
+				CD233C1F2105EC4F0017A5E6 /* Alertable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CD9BB7FA211255AB0016D6C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */,
+				CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */,
+				CD319054210D390C005A6517 /* UserDefaults+TVShows.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CD9BB7FB211255D10016D6C7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB7F421124AA20016D6C7 /* EpisodeDetails */,
+				CD31904B2109C975005A6517 /* AddEpisode */,
+				CD31903D21078A3C005A6517 /* ShowDetails */,
+				CDC70A7620FE5C51004AF82E /* Home */,
+				CD8493C920F2A1F900873A10 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CD9BB7FC2112560A0016D6C7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CDA07E2520EE6F44005118C8 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CD9BB7FD211256120016D6C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDA07E2C20EE6F45005118C8 /* Assets.xcassets */,
+				CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */,
+				CDA07E3120EE6F45005118C8 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CDA07E1920EE6F44005118C8 = {
 			isa = PBXGroup;
 			children = (
@@ -193,15 +240,10 @@
 		CDA07E2420EE6F44005118C8 /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				CD9BB7FC2112560A0016D6C7 /* Application */,
 				CD233C1A21011C3D0017A5E6 /* Common */,
-				CDEA240A20FFD84600B8A60A /* Model */,
-				CDE4E1E520FE82720099B515 /* API */,
-				CDC70A7620FE5C51004AF82E /* Home */,
-				CD8493C920F2A1F900873A10 /* Login */,
-				CDA07E2520EE6F44005118C8 /* AppDelegate.swift */,
-				CDA07E2C20EE6F45005118C8 /* Assets.xcassets */,
-				CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */,
-				CDA07E3120EE6F45005118C8 /* Info.plist */,
+				CD9BB7FB211255D10016D6C7 /* Modules */,
+				CD9BB7FD211256120016D6C7 /* Resources */,
 			);
 			path = TVShows;
 			sourceTree = "<group>";
@@ -209,7 +251,6 @@
 		CDC70A7620FE5C51004AF82E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CD31903D21078A3C005A6517 /* ShowDetails */,
 				CDC70A7720FE5C6F004AF82E /* Home.storyboard */,
 				CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */,
 				CD31905821110132005A6517 /* CollectionViewCell */,
@@ -221,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				CDE4E1E620FE82920099B515 /* APIManager.swift */,
-				CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -522,7 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67Z8CD63L2;
-				INFOPLIST_FILE = TVShows/Info.plist;
+				INFOPLIST_FILE = TVShows/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,7 +581,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67Z8CD63L2;
-				INFOPLIST_FILE = TVShows/Info.plist;
+				INFOPLIST_FILE = TVShows/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

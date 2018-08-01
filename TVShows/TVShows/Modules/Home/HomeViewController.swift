@@ -134,7 +134,6 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         if UserDefaults.tv_shouldUseGrid {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "ShowGridCollectionViewCell",
@@ -171,7 +170,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
             return CGSize(width: cellWidth, height: cellHeight)
         }
-
     }
 
 }
