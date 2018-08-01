@@ -24,6 +24,8 @@
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
 		CD9BB7F3211235D40016D6C7 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB7F2211235D40016D6C7 /* Media.swift */; };
+		CD9BB7F621124AB20016D6C7 /* EpisodeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD9BB7F521124AB20016D6C7 /* EpisodeDetails.storyboard */; };
+		CD9BB7F821124AC60016D6C7 /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB7F721124AC60016D6C7 /* EpisodeDetailsViewController.swift */; };
 		CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA07E2520EE6F44005118C8 /* AppDelegate.swift */; };
 		CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2C20EE6F45005118C8 /* Assets.xcassets */; };
 		CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */; };
@@ -57,6 +59,8 @@
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CD9BB7F2211235D40016D6C7 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		CD9BB7F521124AB20016D6C7 /* EpisodeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EpisodeDetails.storyboard; sourceTree = "<group>"; };
+		CD9BB7F721124AC60016D6C7 /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
 		CDA07E2220EE6F44005118C8 /* TVShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA07E2520EE6F44005118C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDA07E2C20EE6F45005118C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,7 +117,8 @@
 		CD31903D21078A3C005A6517 /* ShowDetails */ = {
 			isa = PBXGroup;
 			children = (
-				CD31904B2109C975005A6517 /* Episode */,
+				CD9BB7F421124AA20016D6C7 /* EpisodeDetails */,
+				CD31904B2109C975005A6517 /* AddEpisode */,
 				CD31904421079675005A6517 /* TableViewCells */,
 				CD31903E21078A4E005A6517 /* ShowDetails.storyboard */,
 				CD31904021078A5D005A6517 /* ShowDetailsViewController.swift */,
@@ -131,13 +136,13 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
-		CD31904B2109C975005A6517 /* Episode */ = {
+		CD31904B2109C975005A6517 /* AddEpisode */ = {
 			isa = PBXGroup;
 			children = (
 				CD31904C2109C98C005A6517 /* AddEpisode.storyboard */,
 				CD31904E2109C99D005A6517 /* AddEpisodeViewController.swift */,
 			);
-			path = Episode;
+			path = AddEpisode;
 			sourceTree = "<group>";
 		};
 		CD31905821110132005A6517 /* CollectionViewCell */ = {
@@ -156,6 +161,15 @@
 				CD8493CC20F2A24D00873A10 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CD9BB7F421124AA20016D6C7 /* EpisodeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB7F521124AB20016D6C7 /* EpisodeDetails.storyboard */,
+				CD9BB7F721124AC60016D6C7 /* EpisodeDetailsViewController.swift */,
+			);
+			path = EpisodeDetails;
 			sourceTree = "<group>";
 		};
 		CDA07E1920EE6F44005118C8 = {
@@ -289,6 +303,7 @@
 				CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */,
 				CD31903F21078A4E005A6517 /* ShowDetails.storyboard in Resources */,
 				CDC70A7820FE5C6F004AF82E /* Home.storyboard in Resources */,
+				CD9BB7F621124AB20016D6C7 /* EpisodeDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +374,7 @@
 				CD319046210796B0005A6517 /* ShowImageTableViewCell.swift in Sources */,
 				CD233C202105EC4F0017A5E6 /* Alertable.swift in Sources */,
 				CDE4E1E420FE73BF0099B515 /* User.swift in Sources */,
+				CD9BB7F821124AC60016D6C7 /* EpisodeDetailsViewController.swift in Sources */,
 				CD31904F2109C99D005A6517 /* AddEpisodeViewController.swift in Sources */,
 				CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */,
 				CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */,

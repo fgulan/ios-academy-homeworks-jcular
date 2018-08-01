@@ -105,6 +105,14 @@ extension ShowDetailsViewController: Progressable, Alertable {
 
 extension ShowDetailsViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let episode = _episodes[indexPath.row]
+        let episodeDetailsViewController = EpisodeDetailsViewController.initFromStoryboard(withToken: _token, episodeID: episode.id)
+        navigationController?.show(episodeDetailsViewController, sender: self)
+    }
+
 }
 
 // MARK: - UITableViewDataSource -
