@@ -160,7 +160,6 @@ class APIManager {
                     seal.fulfill(media)
                 case .failure(let error):
                     seal.reject(error)
-                    print("FAILURE: \(error)")
                 }
         }
     }
@@ -172,6 +171,25 @@ class APIManager {
         return Alamofire
             .request("\(_episodesURL)/\(episodeID)/comments",
                 method: .get,
+                encoding: JSONEncoding.default,
+                headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
+    public static func postComment(withToken token: String, forEpisodeID episodeID: String, text: String) -> Promise<Comment> {
+
+        let headers = ["Authorization": token]
+
+        let parameters = [
+            "text": text,
+            "episodeId": episodeID
+        ]
+
+        return Alamofire
+            .request(_commentsURL,
+                method: .post,
+                parameters: parameters,
                 encoding: JSONEncoding.default,
                 headers: headers)
             .validate()
@@ -195,6 +213,7 @@ extension APIManager {
     private static let _episodesURL = "\(_APIURL)/episodes"
 
     private static let _mediaURL = "\(_APIURL)/media"
+    private static let _commentsURL = "\(_APIURL)/comments"
 }
 
 extension APIManager {
