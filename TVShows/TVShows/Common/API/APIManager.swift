@@ -165,6 +165,19 @@ class APIManager {
         }
     }
 
+    public static func getComments(withToken token: String, forEpisodeID episodeID: String) -> Promise<[Comment]> {
+
+        let headers = ["Authorization": token]
+
+        return Alamofire
+            .request("\(_episodesURL)/\(episodeID)/comments",
+                method: .get,
+                encoding: JSONEncoding.default,
+                headers: headers)
+            .validate()
+            .responseDecodableObject(keyPath: "data", decoder: JSONDecoder())
+    }
+
 }
 
 extension APIManager {
