@@ -26,6 +26,8 @@
 		CD9BB7F3211235D40016D6C7 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB7F2211235D40016D6C7 /* Media.swift */; };
 		CD9BB7F621124AB20016D6C7 /* EpisodeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD9BB7F521124AB20016D6C7 /* EpisodeDetails.storyboard */; };
 		CD9BB7F821124AC60016D6C7 /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB7F721124AC60016D6C7 /* EpisodeDetailsViewController.swift */; };
+		CD9BB800211256B10016D6C7 /* Comments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD9BB7FF211256B10016D6C7 /* Comments.storyboard */; };
+		CD9BB802211256BF0016D6C7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */; };
 		CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA07E2520EE6F44005118C8 /* AppDelegate.swift */; };
 		CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2C20EE6F45005118C8 /* Assets.xcassets */; };
 		CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */; };
@@ -61,6 +63,8 @@
 		CD9BB7F2211235D40016D6C7 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		CD9BB7F521124AB20016D6C7 /* EpisodeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EpisodeDetails.storyboard; sourceTree = "<group>"; };
 		CD9BB7F721124AC60016D6C7 /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
+		CD9BB7FF211256B10016D6C7 /* Comments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comments.storyboard; sourceTree = "<group>"; };
+		CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		CDA07E2220EE6F44005118C8 /* TVShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA07E2520EE6F44005118C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDA07E2C20EE6F45005118C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 		CD9BB7FB211255D10016D6C7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CD9BB7FE211256A00016D6C7 /* Comments */,
 				CD9BB7F421124AA20016D6C7 /* EpisodeDetails */,
 				CD31904B2109C975005A6517 /* AddEpisode */,
 				CD31903D21078A3C005A6517 /* ShowDetails */,
@@ -217,6 +222,15 @@
 				CDA07E3120EE6F45005118C8 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD9BB7FE211256A00016D6C7 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB7FF211256B10016D6C7 /* Comments.storyboard */,
+				CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */,
+			);
+			path = Comments;
 			sourceTree = "<group>";
 		};
 		CDA07E1920EE6F44005118C8 = {
@@ -337,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9BB800211256B10016D6C7 /* Comments.storyboard in Resources */,
 				CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */,
 				CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */,
 				CD31904D2109C98C005A6517 /* AddEpisode.storyboard in Resources */,
@@ -405,6 +420,7 @@
 			files = (
 				CD319057210DFE14005A6517 /* ShowListCollectionViewCell.swift in Sources */,
 				CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */,
+				CD9BB802211256BF0016D6C7 /* CommentsViewController.swift in Sources */,
 				CD31904321078C9C005A6517 /* Episode.swift in Sources */,
 				CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */,
 				CD31904A210796CF005A6517 /* EpisodeTableViewCell.swift in Sources */,
