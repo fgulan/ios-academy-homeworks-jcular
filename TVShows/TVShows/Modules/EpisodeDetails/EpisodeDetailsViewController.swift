@@ -53,6 +53,8 @@ class EpisodeDetailsViewController: UIViewController {
     // MARK: - IBActions -
 
     @IBAction private func _didTapCommentsButton(_ sender: Any) {
+        let commentsViewController = CommentsViewController.initFromStoryboard(withToken: _token, episodeID: _episodeID)
+        navigationController?.pushViewController(commentsViewController, animated: true)
     }
 
     @IBAction private func _didTapBackButton(_ sender: Any) {
