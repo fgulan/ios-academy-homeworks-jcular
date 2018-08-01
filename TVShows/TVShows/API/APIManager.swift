@@ -112,6 +112,46 @@ class APIManager {
 
     }
 
+    public static func uploadImage(withToken token: String,
+                                   image: UIImage) -> Promise<Media> {
+
+        let headers = ["Authorization": token]
+
+        let imageByteData = UIImagePNGRepresentation(image)!
+
+        return Promise<Media> { seal in
+            Alamofire
+                .upload(multipartFormData: { multipartFormData in
+                    multipartFormData.append(imageByteData,
+                                             withName: "file",
+                                             fileName: "image.png",
+                                             mimeType: "image/png")
+                }, to: _mediaURL,
+                   method: .post,
+                   headers: headers) { result in
+                        switch result {
+                        case .success(let uploadRequest, _, _):
+                            _process(uploadRequest: uploadRequest, seal: seal)
+                        case .failure(let encodingError):
+                            seal.reject(encodingError)
+                    }
+                }
+        }
+    }
+
+    private static func _process(uploadRequest: UploadRequest, seal: Resolver<Media>) {
+        uploadRequest
+            .responseDecodableObject(keyPath: "data") { (response: DataResponse<Media>) in
+                switch response.result {
+                case .success(let media):
+                    seal.fulfill(media)
+                case .failure(let error):
+                    seal.reject(error)
+                    print("FAILURE: \(error)")
+                }
+        }
+    }
+
 }
 
 extension APIManager {
@@ -127,6 +167,8 @@ extension APIManager {
 
     private static let _showsURL = "\(_APIURL)/shows"
     private static let _episodesURL = "\(_APIURL)/episodes"
+
+    private static let _mediaURL = "\(_APIURL)/media"
 }
 
 extension APIManager {
