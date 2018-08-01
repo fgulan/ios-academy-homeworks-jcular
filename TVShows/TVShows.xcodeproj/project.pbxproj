@@ -23,6 +23,7 @@
 		CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */; };
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
+		CD9BB7F3211235D40016D6C7 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB7F2211235D40016D6C7 /* Media.swift */; };
 		CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA07E2520EE6F44005118C8 /* AppDelegate.swift */; };
 		CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2C20EE6F45005118C8 /* Assets.xcassets */; };
 		CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 		CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableAlamofire+Promise.swift"; sourceTree = "<group>"; };
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CD9BB7F2211235D40016D6C7 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		CDA07E2220EE6F44005118C8 /* TVShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA07E2520EE6F44005118C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDA07E2C20EE6F45005118C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				CDE4E1E320FE73BF0099B515 /* User.swift */,
 				CDEA240B20FFD8A600B8A60A /* Show.swift */,
 				CD31904221078C9C005A6517 /* Episode.swift */,
+				CD9BB7F2211235D40016D6C7 /* Media.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				CD31904F2109C99D005A6517 /* AddEpisodeViewController.swift in Sources */,
 				CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */,
 				CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */,
+				CD9BB7F3211235D40016D6C7 /* Media.swift in Sources */,
 				CD319055210D390C005A6517 /* UserDefaults+TVShows.swift in Sources */,
 				CDEA240E20FFDDA400B8A60A /* ShowGridCollectionViewCell.swift in Sources */,
 				CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */,
