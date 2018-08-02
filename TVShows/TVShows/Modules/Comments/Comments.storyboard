@@ -69,34 +69,8 @@
                                                 <connections>
                                                     <outlet property="_commentLabel" destination="P8i-si-LAr" id="std-Mr-G4M"/>
                                                     <outlet property="_userEmailLabel" destination="6LL-bK-enU" id="YIS-CZ-Pc5"/>
+                                                    <outlet property="_userImageView" destination="FRZ-lU-Yq1" id="cPv-Oa-wBt"/>
                                                 </connections>
-                                            </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EmptyStateTableViewCell" rowHeight="366" id="j7P-pP-kIA" customClass="EmptyStateTableViewCell" customModule="TVShows" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="115" width="375" height="366"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j7P-pP-kIA" id="FbK-jZ-wDp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="366"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-placehoder-comments" translatesAutoresizingMaskIntoConstraints="NO" id="Zi6-Jl-z1F">
-                                                            <rect key="frame" x="133.5" y="132" width="107" height="102"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, we don't have comments yet. Be first who will write a review" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAk-iM-djD">
-                                                            <rect key="frame" x="55" y="248" width="265" height="38.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="Zi6-Jl-z1F" firstAttribute="centerY" secondItem="FbK-jZ-wDp" secondAttribute="centerY" id="PV9-6G-0kp"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="hAk-iM-djD" secondAttribute="trailing" constant="40" id="Qu2-VZ-TuD"/>
-                                                        <constraint firstItem="Zi6-Jl-z1F" firstAttribute="centerX" secondItem="FbK-jZ-wDp" secondAttribute="centerX" id="dj7-6f-zDh"/>
-                                                        <constraint firstItem="hAk-iM-djD" firstAttribute="top" secondItem="Zi6-Jl-z1F" secondAttribute="bottom" constant="14" id="hIC-0z-Qz3"/>
-                                                        <constraint firstAttribute="bottom" secondItem="hAk-iM-djD" secondAttribute="bottom" constant="79" id="heD-dx-rEa"/>
-                                                        <constraint firstItem="hAk-iM-djD" firstAttribute="leading" secondItem="FbK-jZ-wDp" secondAttribute="leadingMargin" constant="40" id="z9e-Wa-0Po"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -156,7 +130,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="img-placehoder-comments" width="107" height="102"/>
         <image name="img-placeholder-user1" width="48" height="48"/>
     </resources>
 </document>
