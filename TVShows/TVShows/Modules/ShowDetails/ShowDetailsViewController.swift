@@ -25,6 +25,10 @@ class ShowDetailsViewController: UIViewController {
             _tableView.rowHeight = UITableViewAutomaticDimension
             _tableView.estimatedRowHeight = 300
             _tableView.contentInset.bottom = _addButton.frame.size.height + _addButtonBottomConstraints.constant
+
+            _tableView.refreshControl = _refreshControl
+            _refreshControl.tintColor = UIColor.ts_pink
+            _refreshControl.addTarget(self, action: #selector(_refreashData), for: .valueChanged)
         }
     }
     
@@ -35,6 +39,8 @@ class ShowDetailsViewController: UIViewController {
     private var _showDetails: ShowDetails?
     private var _episodes: [Episode] = []
 
+    private let _refreshControl = UIRefreshControl()
+    
     // MARK: - Init -
 
     public class func initFromStoryboard(withToken token: String, showID: String) -> ShowDetailsViewController {
@@ -79,6 +85,10 @@ extension ShowDetailsViewController: Progressable, Alertable {
 
     // MARK: - Data loading -
 
+    @objc private func _refreashData() {
+        _loadShowData(withToken: _token, showID: _showID)
+    }
+
     private func _loadShowData(withToken token: String, showID: String) {
         showProgressView()
 
@@ -91,6 +101,9 @@ extension ShowDetailsViewController: Progressable, Alertable {
             guard let `self` = self else { return }
             self._episodes = episodes
             self._tableView.reloadData()
+            if self._refreshControl.isRefreshing {
+                self._refreshControl.endRefreshing()
+            }
         }.catch { [weak self] error in
             self?.showAlertView(title: "Failed to fetch show details",
                                 message: "Failed to fetch show details, please check your internet connection.")
