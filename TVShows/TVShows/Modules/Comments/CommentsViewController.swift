@@ -24,6 +24,10 @@ class CommentsViewController: UIViewController {
 
             _tableView.rowHeight = UITableViewAutomaticDimension
             _tableView.estimatedRowHeight = 300
+
+            _tableView.refreshControl = _refreshControl
+            _refreshControl.tintColor = UIColor.ts_pink
+            _refreshControl.addTarget(self, action: #selector(_refreashData), for: .valueChanged)
         }
     }
 
@@ -32,6 +36,8 @@ class CommentsViewController: UIViewController {
     private var _token: String!
     private var _episodeID: String!
     private var _comments: [Comment] = []
+
+    private let _refreshControl = UIRefreshControl()
 
     // MARK: - Init -
 
@@ -119,6 +125,10 @@ extension CommentsViewController: Progressable, Alertable {
 
     // MARK: - Data loading -
 
+    @objc private func _refreashData() {
+        _loadComments(withToken: _token, episodeID: _episodeID)
+    }
+
     private func _loadComments(withToken token: String, episodeID: String) {
         showProgressView()
 
@@ -128,6 +138,9 @@ extension CommentsViewController: Progressable, Alertable {
             guard let `self` = self else { return }
             self._comments = comments
             self._tableView.reloadData()
+            if self._refreshControl.isRefreshing {
+                self._refreshControl.endRefreshing()
+            }
         }.catch { [weak self] error in
             self?.showAlertView(title: "Failed to fetch comments",
                                     message: "Failed to fetch comments, please check your internet connection.")
