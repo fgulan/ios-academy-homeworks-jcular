@@ -18,7 +18,11 @@ class HomeViewController: UIViewController {
         didSet {
             _collectionView.delegate = self
             _collectionView.dataSource = self
-            _loadShows()
+            _loadShows(withToken: _loginUser.token)
+
+            _collectionView.refreshControl = _refreshControl
+            _refreshControl.tintColor = UIColor.ts_pink
+            _refreshControl.addTarget(self, action: #selector(_refreashData), for: .valueChanged)
         }
     }
 
@@ -28,6 +32,8 @@ class HomeViewController: UIViewController {
     private var _shows: [Show] = []
     private var _switchLayoutItem: UIBarButtonItem!
 
+    private let _refreshControl = UIRefreshControl()
+    
     // MARK: - Init -
 
     public class func initFromStoryboard(with loginUser: LoginData) -> HomeViewController {
@@ -92,15 +98,22 @@ extension HomeViewController: Progressable, Alertable {
 
     // MARK: - Data loading -
 
-    func _loadShows() {
+    @objc private func _refreashData() {
+        _loadShows(withToken: _loginUser.token)
+    }
+
+    func _loadShows(withToken token: String) {
         showProgressView()
 
         firstly {
-            APIManager.getShows(withToken: _loginUser.token)
+            APIManager.getShows(withToken: token)
             }.done { [weak self] (shows: [Show]) in
                 guard let `self` = self else { return }
                 self._shows = shows
                 self._collectionView.reloadData()
+                if self._refreshControl.isRefreshing {
+                    self._refreshControl.endRefreshing()
+                }
             }.catch { [weak self] error in
                 self?.showAlertView(title: "Failed to fetch shows",
                                     message: "Failed to fetch shows, please check your internet connection.")
