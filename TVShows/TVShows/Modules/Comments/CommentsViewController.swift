@@ -39,8 +39,11 @@ class CommentsViewController: UIViewController {
         didSet {
             if _comments.count > 0 {
                 title = "Comments"
+                _tableView.backgroundView = nil
             } else {
                 title = nil
+                let backgroundView = _instantiateBackgroundView()
+                _tableView.backgroundView = backgroundView
             }
         }
     }
@@ -149,6 +152,13 @@ class CommentsViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    private func _instantiateBackgroundView() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nibName = "CommentsBackground"
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        return nib.instantiate(withOwner: self, options: nil).first as! UIView
+
+    }
 
 }
 

@@ -30,6 +30,7 @@
 		CD9BB802211256BF0016D6C7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */; };
 		CD9BB805211259710016D6C7 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB804211259710016D6C7 /* CommentTableViewCell.swift */; };
 		CD9BB80721125C960016D6C7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB80621125C960016D6C7 /* Comment.swift */; };
+		CD9BB80B211354DD0016D6C7 /* CommentsBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9BB80A211354DD0016D6C7 /* CommentsBackground.xib */; };
 		CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA07E2520EE6F44005118C8 /* AppDelegate.swift */; };
 		CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2C20EE6F45005118C8 /* Assets.xcassets */; };
 		CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */; };
@@ -69,6 +70,7 @@
 		CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		CD9BB804211259710016D6C7 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		CD9BB80621125C960016D6C7 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		CD9BB80A211354DD0016D6C7 /* CommentsBackground.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsBackground.xib; sourceTree = "<group>"; };
 		CDA07E2220EE6F44005118C8 /* TVShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA07E2520EE6F44005118C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDA07E2C20EE6F45005118C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		CD9BB7FE211256A00016D6C7 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				CD9BB80E211359D90016D6C7 /* BackgroundView */,
 				CD9BB803211257BE0016D6C7 /* TableViewCell */,
 				CD9BB7FF211256B10016D6C7 /* Comments.storyboard */,
 				CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */,
@@ -244,6 +247,14 @@
 				CD9BB804211259710016D6C7 /* CommentTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		CD9BB80E211359D90016D6C7 /* BackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB80A211354DD0016D6C7 /* CommentsBackground.xib */,
+			);
+			path = BackgroundView;
 			sourceTree = "<group>";
 		};
 		CDA07E1920EE6F44005118C8 = {
@@ -365,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9BB80B211354DD0016D6C7 /* CommentsBackground.xib in Resources */,
 				CD9BB800211256B10016D6C7 /* Comments.storyboard in Resources */,
 				CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */,
 				CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */,
