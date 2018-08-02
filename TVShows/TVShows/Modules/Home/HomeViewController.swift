@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
             _loadShows(withToken: _loginUser.token)
 
             _collectionView.refreshControl = _refreshControl
-            _refreshControl.tintColor = UIColor.ts_pink
+            _refreshControl.tintColor = UIColor.ts.pink
             _refreshControl.addTarget(self, action: #selector(_refreashData), for: .valueChanged)
         }
     }
@@ -79,13 +79,13 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func _didSelectSwitchLayout() {
-        UserDefaults.tv_shouldUseGrid = !UserDefaults.tv_shouldUseGrid
+        UserDefaults.ts.shouldUseGrid = !UserDefaults.ts.shouldUseGrid
         _setImageForSwitchLayoutBarButton()
         _collectionView.reloadData()
     }
 
     private func _setImageForSwitchLayoutBarButton() {
-        let shouldUseGridLayout = UserDefaults.tv_shouldUseGrid
+        let shouldUseGridLayout = UserDefaults.ts.shouldUseGrid
         let layoutImageName = shouldUseGridLayout ? "ic-gridview" : "ic-listview"
         let layoutButtonImage = UIImage(named:
             layoutImageName)?.withRenderingMode(.alwaysOriginal)
@@ -147,7 +147,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if UserDefaults.tv_shouldUseGrid {
+        if UserDefaults.ts.shouldUseGrid {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "ShowGridCollectionViewCell",
                 for: indexPath
@@ -172,7 +172,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if UserDefaults.tv_shouldUseGrid {
+        if UserDefaults.ts.shouldUseGrid {
             let cellWidth = view.frame.size.width / 2 - 10
             let cellHeight = cellWidth * 4/3
 

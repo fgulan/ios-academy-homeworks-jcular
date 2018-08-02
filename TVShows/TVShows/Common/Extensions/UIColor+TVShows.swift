@@ -11,5 +11,7 @@ import UIKit
 
 extension UIColor {
 
-    public static let ts_pink: UIColor = UIColor(red: 255.0/255.0, green: 117.0/255.0, blue: 140.0/255.0, alpha: 1.0)
+    enum ts {
+        public static let pink: UIColor = UIColor(red: 255.0/255.0, green: 117.0/255.0, blue: 140.0/255.0, alpha: 1.0)
+    }
 }

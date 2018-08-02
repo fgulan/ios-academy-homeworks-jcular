@@ -73,14 +73,14 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
             barButtonSystemItem: .cancel,
             target: self,
             action: #selector(_didSelectCancel))
-        cancelButton.tintColor = UIColor.ts_pink
+        cancelButton.tintColor = UIColor.ts.pink
         navigationItem.leftBarButtonItem = cancelButton
 
         let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(_didSelectAddShow))
-        addButton.tintColor = UIColor.ts_pink
+        addButton.tintColor = UIColor.ts.pink
         navigationItem.rightBarButtonItem = addButton
     }
 

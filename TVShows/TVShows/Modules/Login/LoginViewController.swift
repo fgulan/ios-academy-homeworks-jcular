@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         _registerNotifications()
     }
 
@@ -143,6 +144,7 @@ class LoginViewController: UIViewController {
 
     private func _presentHomeViewController(withLoginUser loginUser: LoginData) {
         let homeViewController = HomeViewController.initFromStoryboard(with: loginUser)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.setViewControllers([homeViewController], animated: true)
     }
 
@@ -150,7 +152,6 @@ class LoginViewController: UIViewController {
 
     private func _shakeTextField(textField: UITextField) {
         let keyPath = "position"
-//        textField.layer.removeAnimation(forKey: keyPath)
 
         let animation = CABasicAnimation(keyPath: keyPath)
         animation.duration = 0.05
@@ -169,7 +170,7 @@ class LoginViewController: UIViewController {
                        animations: {
                         button.backgroundColor = UIColor.red
         }) { (finished) in
-            button.backgroundColor = UIColor.ts_pink
+            button.backgroundColor = UIColor.ts.pink
         }
     }
 

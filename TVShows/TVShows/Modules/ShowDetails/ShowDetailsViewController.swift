@@ -27,7 +27,7 @@ class ShowDetailsViewController: UIViewController {
             _tableView.contentInset.bottom = _addButton.frame.size.height + _addButtonBottomConstraints.constant
 
             _tableView.refreshControl = _refreshControl
-            _refreshControl.tintColor = UIColor.ts_pink
+            _refreshControl.tintColor = UIColor.ts.pink
             _refreshControl.addTarget(self, action: #selector(_refreashData), for: .valueChanged)
         }
     }
@@ -56,13 +56,13 @@ class ShowDetailsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     // MARK: - IBActions -
 
     @IBAction private func _didTapBackButton(_ sender: Any) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.popViewController(animated: true)
     }
 

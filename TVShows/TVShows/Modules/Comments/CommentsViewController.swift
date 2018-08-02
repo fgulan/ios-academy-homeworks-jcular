@@ -26,7 +26,7 @@ class CommentsViewController: UIViewController {
             _tableView.estimatedRowHeight = 300
 
             _tableView.refreshControl = _refreshControl
-            _refreshControl.tintColor = UIColor.ts_pink
+            _refreshControl.tintColor = UIColor.ts.pink
             _refreshControl.addTarget(self, action: #selector(_refreashData), for: .valueChanged)
         }
     }

@@ -30,7 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-0j-SFY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-0j-SFY">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="375.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="jgQ-0j-SFY" secondAttribute="height" multiplier="1:1" id="WiI-o8-rgq"/>

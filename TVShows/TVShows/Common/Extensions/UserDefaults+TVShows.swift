@@ -10,21 +10,23 @@ import Foundation
 
 extension UserDefaults {
 
+    enum ts {
     // MARK: - Keys -
 
-    private static let _shouldUseGridKey = "tvshows.shouldUseGrid"
+        private static let _shouldUseGridKey = "tvshows.shouldUseGrid"
 
-    // MARK: - HomeViewController Layout -
+        // MARK: - HomeViewController Layout -
 
-    public static var tv_shouldUseGrid: Bool {
-        set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaults._shouldUseGridKey)
-        }
-        get {
-            guard
-                let _shouldUseGridKey = UserDefaults.standard.value(forKey: UserDefaults._shouldUseGridKey) as? Bool
-                else { return true }
-            return _shouldUseGridKey
+        public static var shouldUseGrid: Bool {
+            set {
+                UserDefaults.standard.set(newValue, forKey: ts._shouldUseGridKey)
+            }
+            get {
+                guard
+                    let _shouldUseGridKey = UserDefaults.standard.value(forKey: ts._shouldUseGridKey) as? Bool
+                    else { return true }
+                return _shouldUseGridKey
+            }
         }
     }
 
