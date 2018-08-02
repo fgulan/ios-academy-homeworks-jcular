@@ -210,34 +210,19 @@ extension CommentsViewController: UITableViewDelegate {
 extension CommentsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if _comments.count == 0 {
-            return 1
-        } else {
-            return _comments.count
-        }
+        return _comments.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "CommentTableViewCell",
+            for: indexPath
+        ) as! CommentTableViewCell
 
-        if _comments.count == 0 {
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: "EmptyStateTableViewCell",
-                for: indexPath
-            ) as! EmptyStateTableViewCell
+        cell.configure(comment: _comments[indexPath.row])
 
-            cell.selectionStyle = .none
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: "CommentTableViewCell",
-                for: indexPath
-            ) as! CommentTableViewCell
-
-            cell.configure(comment: _comments[indexPath.row])
-
-            cell.selectionStyle = .none
-            return cell
-        }
+        cell.selectionStyle = .none
+        return cell
     }
 
 }
