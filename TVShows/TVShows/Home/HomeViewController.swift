@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import KeychainAccess
 
 class HomeViewController: UIViewController {
 
@@ -64,7 +65,9 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func _didSelectLogout() {
-        UserDefaults.clearUserCredidentials()
+        let keychain = Keychain(service: "hr.jcular.TVShows")
+        keychain["email"] = nil
+        keychain["password"] = nil
         let loginViewController = LoginViewController.initFromStroyboard()
         navigationController?.setViewControllers([loginViewController], animated: true)
     }

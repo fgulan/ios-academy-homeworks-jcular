@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import KeychainAccess
 
 class LoginViewController: UIViewController {
 
@@ -23,6 +24,7 @@ class LoginViewController: UIViewController {
 
     private var _user: User?
     private var _loginUser: LoginData?
+    private let _keychain = Keychain(service: "hr.jcular.TVShows")
 
     // MARK: - Init -
 
@@ -220,15 +222,17 @@ extension LoginViewController: Progressable, Alertable {
 
     private func _rememberUserIfNeeded() {
         if _rememberMeCheckmark.isSelected {
-            UserDefaults.tv_userEmail = self._emailTextField.text
-            UserDefaults.tv_userPassword = self._passwordTextField.text
+            _keychain["email"] = self._emailTextField.text
+            _keychain["password"] = self._passwordTextField.text
         }
     }
 
     private func _loginIfUserRemembered() {
         guard
-            let email = UserDefaults.tv_userEmail,
-            let password = UserDefaults.tv_userPassword
+            let emailOptional = try? _keychain.getString("email"),
+            let passwordOptional = try? _keychain.getString("password"),
+            let email = emailOptional,
+            let password = passwordOptional
         else { return }
         _loginUser(email: email, password: password)
     }
