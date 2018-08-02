@@ -35,7 +35,15 @@ class CommentsViewController: UIViewController {
 
     private var _token: String!
     private var _episodeID: String!
-    private var _comments: [Comment] = []
+    private var _comments: [Comment] = [] {
+        didSet {
+            if _comments.count > 0 {
+                title = "Comments"
+            } else {
+                title = nil
+            }
+        }
+    }
 
     private let _refreshControl = UIRefreshControl()
 
@@ -51,6 +59,18 @@ class CommentsViewController: UIViewController {
     }
 
     // MARK: - Lifeciycle -
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let backButtonImage = UIImage(named:
+            "ic-navigate-back")?.withRenderingMode(.alwaysOriginal)
+        let backItem = UIBarButtonItem(image: backButtonImage,
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(_didSelectBack))
+        navigationItem.leftBarButtonItem = backItem
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -122,6 +142,13 @@ class CommentsViewController: UIViewController {
         }
 
     }
+
+    // MARK: - Private -
+
+    @objc private func _didSelectBack() {
+        navigationController?.popViewController(animated: true)
+    }
+
 
 }
 
