@@ -118,11 +118,21 @@ extension APIManager {
 
     // MARK: - API URLs -
 
-    private static let _URL = "https://api.infinum.academy/api"
+    private static let _URL = "https://api.infinum.academy"
 
-    private static let _loginUserURL = "\(_URL)/users/sessions"
-    private static let _registerUserURL = "\(_URL)/users"
+    private static let _APIURL = "\(_URL)/api"
 
-    private static let _showsURL = "\(_URL)/shows"
-    private static let _episodesURL = "\(_URL)/episodes"
+    private static let _loginUserURL = "\(_APIURL)/users/sessions"
+    private static let _registerUserURL = "\(_APIURL)/users"
+
+    private static let _showsURL = "\(_APIURL)/shows"
+    private static let _episodesURL = "\(_APIURL)/episodes"
+}
+
+extension APIManager {
+
+    public static func createImageURL(withResource imageResource: String) -> URL {
+        return URL(string: "\(_URL)\(imageResource)")!
+    }
+
 }

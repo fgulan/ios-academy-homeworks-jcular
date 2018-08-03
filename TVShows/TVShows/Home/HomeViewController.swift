@@ -8,15 +8,17 @@
 
 import UIKit
 import PromiseKit
+import KeychainAccess
 
 class HomeViewController: UIViewController {
 
     // MARK: - IBOutlets -
 
-    @IBOutlet private weak var _tableView: UITableView! {
+    @IBOutlet private weak var _collectionView: UICollectionView! {
         didSet {
-            _tableView.delegate = self
-            _tableView.dataSource = self
+            _collectionView.delegate = self
+            _collectionView.dataSource = self
+            _loadShows()
         }
     }
 
@@ -24,6 +26,7 @@ class HomeViewController: UIViewController {
 
     private var _loginUser: LoginData!
     private var _shows: [Show] = []
+    private var _switchLayoutItem: UIBarButtonItem!
 
     // MARK: - Init -
 
@@ -38,9 +41,49 @@ class HomeViewController: UIViewController {
 
     // MARK: - Lifecycle -
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        _loadShows()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        _setupNavigationBar()
+    }
+
+    private func _setupNavigationBar() {
+        let logoutButtonImage = UIImage(named:
+            "ic-logout")?.withRenderingMode(.alwaysOriginal)
+        let logoutItem = UIBarButtonItem(image: logoutButtonImage,
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(_didSelectLogout))
+        navigationItem.leftBarButtonItem = logoutItem
+
+        _switchLayoutItem = UIBarButtonItem(image: nil,
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(_didSelectSwitchLayout))
+        _setImageForSwitchLayoutBarButton()
+        navigationItem.rightBarButtonItem = _switchLayoutItem
+    }
+
+    @objc private func _didSelectLogout() {
+        let keychain = Keychain(service: "hr.jcular.TVShows")
+        keychain["email"] = nil
+        keychain["password"] = nil
+        let loginViewController = LoginViewController.initFromStroyboard()
+        navigationController?.setViewControllers([loginViewController], animated: true)
+    }
+
+    @objc private func _didSelectSwitchLayout() {
+        UserDefaults.tv_shouldUseGrid = !UserDefaults.tv_shouldUseGrid
+        _setImageForSwitchLayoutBarButton()
+        _collectionView.reloadData()
+    }
+
+    private func _setImageForSwitchLayoutBarButton() {
+        let shouldUseGridLayout = UserDefaults.tv_shouldUseGrid
+        let layoutImageName = shouldUseGridLayout ? "ic-gridview" : "ic-listview"
+        let layoutButtonImage = UIImage(named:
+            layoutImageName)?.withRenderingMode(.alwaysOriginal)
+        _switchLayoutItem.image = layoutButtonImage
     }
 
 }
@@ -57,7 +100,7 @@ extension HomeViewController: Progressable, Alertable {
             }.done { [weak self] (shows: [Show]) in
                 guard let `self` = self else { return }
                 self._shows = shows
-                self._tableView.reloadData()
+                self._collectionView.reloadData()
             }.catch { [weak self] error in
                 self?.showAlertView(title: "Failed to fetch shows",
                                     message: "Failed to fetch shows, please check your internet connection.")
@@ -68,12 +111,12 @@ extension HomeViewController: Progressable, Alertable {
 
 }
 
-// MARK: - UITableViewDelegate -
+// MARK: - UICollectionViewDelegate -
 
-extension HomeViewController: UITableViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        _collectionView.deselectItem(at: indexPath, animated: true)
 
         let show = _shows[indexPath.row]
         let showDetailsViewController = ShowDetailsViewController.initFromStoryboard(withToken: _loginUser.token, showID: show.id)
@@ -82,31 +125,53 @@ extension HomeViewController: UITableViewDelegate {
 
 }
 
-// MARK: - UITableViewDataSource -
+// MARK: - UICollectionViewDataSource -
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UICollectionViewDataSource {
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteButton = UITableViewRowAction(style: .default, title: "Delete") { [weak self] (action, indexPath) in
-            self?._shows.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        return [deleteButton]
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return _shows.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "ShowTableViewCell",
-            for: indexPath
-        ) as! ShowTableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        cell.configure(show: _shows[indexPath.row])
+        if UserDefaults.tv_shouldUseGrid {
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "ShowGridCollectionViewCell",
+                for: indexPath
+            ) as! ShowGridCollectionViewCell
 
-        return cell
+            cell.configure(show: _shows[indexPath.row])
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "ShowListCollectionViewCell",
+                for: indexPath
+                ) as! ShowListCollectionViewCell
+
+            cell.configure(show: _shows[indexPath.row])
+            return cell
+        }
+    }
+
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout -
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if UserDefaults.tv_shouldUseGrid {
+            let cellWidth = view.frame.size.width / 2 - 10
+            let cellHeight = cellWidth * 4/3
+
+            return CGSize(width: cellWidth, height: cellHeight)
+        } else {
+            let cellWidth = view.frame.size.width
+            let cellHeight = CGFloat(180)
+
+            return CGSize(width: cellWidth, height: cellHeight)
+        }
+
     }
 
 }

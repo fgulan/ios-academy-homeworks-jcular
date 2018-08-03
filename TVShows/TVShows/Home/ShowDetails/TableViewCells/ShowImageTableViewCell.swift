@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ShowImageTableViewCell: UITableViewCell {
 
@@ -23,8 +24,9 @@ class ShowImageTableViewCell: UITableViewCell {
 
     // MARK: - Public -
 
-    public func configure(image: UIImage) {
-        _showImageView.image = image
+    public func configure(imageResource: String) {
+        let showImageUrl = APIManager.createImageURL(withResource: imageResource)
+        _showImageView.kf.setImage(with: showImageUrl)
     }
     
 }

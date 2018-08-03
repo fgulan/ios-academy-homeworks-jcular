@@ -7,24 +7,26 @@
 //
 
 import UIKit
+import Kingfisher
 
-class ShowTableViewCell: UITableViewCell {
+class ShowGridCollectionViewCell: UICollectionViewCell {
 
     // MARK: - IBOutlets -
 
-    @IBOutlet private weak var _showTitleLabel: UILabel!
+    @IBOutlet private weak var _showImageView: UIImageView!
 
     // MARK: - Lifecycle -
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        _showTitleLabel.text = nil
+        _showImageView.image = nil
     }
 
     // MARK: - Public -
 
     public func configure(show: Show) {
-        _showTitleLabel.text = show.title
+        let showImageUrl = APIManager.createImageURL(withResource: show.imageURL)
+        _showImageView.kf.setImage(with: showImageUrl)
     }
 
 }

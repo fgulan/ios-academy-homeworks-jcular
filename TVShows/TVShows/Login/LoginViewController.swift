@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import KeychainAccess
 
 class LoginViewController: UIViewController {
 
@@ -23,12 +24,21 @@ class LoginViewController: UIViewController {
 
     private var _user: User?
     private var _loginUser: LoginData?
+    private let _keychain = Keychain(service: "hr.jcular.TVShows")
+
+    // MARK: - Init -
+
+    public static func initFromStroyboard() -> LoginViewController {
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        return loginViewController
+    }
 
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        _loginIfUserRemembered()
         _logInButton.layer.cornerRadius = 5.0
     }
 
@@ -63,6 +73,15 @@ class LoginViewController: UIViewController {
             let password = _passwordTextField.text
         else { return }
 
+        if (email == "") {
+            _shakeTextField(textField: _emailTextField)
+            return
+        }
+        if (password == "") {
+            _shakeTextField(textField: _passwordTextField)
+            return
+        }
+
         _loginUser(email: email, password: password)
     }
 
@@ -71,6 +90,15 @@ class LoginViewController: UIViewController {
             let email = _emailTextField.text,
             let password = _passwordTextField.text
         else { return }
+
+        if (email == "") {
+            _shakeTextField(textField: _emailTextField)
+            return
+        }
+        if (password == "") {
+            _shakeTextField(textField: _passwordTextField)
+            return
+        }
 
         _registerUser(email: email, password: password)
     }
@@ -118,6 +146,33 @@ class LoginViewController: UIViewController {
         navigationController?.setViewControllers([homeViewController], animated: true)
     }
 
+    // MARK: - Animations -
+
+    private func _shakeTextField(textField: UITextField) {
+        let keyPath = "position"
+//        textField.layer.removeAnimation(forKey: keyPath)
+
+        let animation = CABasicAnimation(keyPath: keyPath)
+        animation.duration = 0.05
+        animation.repeatCount = 3
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: textField.center.x - 5, y: textField.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: textField.center.x + 5, y: textField.center.y))
+
+        textField.layer.add(animation, forKey: keyPath)
+    }
+
+    private func _pulseButton(button: UIButton) {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0,
+                       options: [.autoreverse, .curveEaseOut],
+                       animations: {
+                        button.backgroundColor = UIColor.red
+        }) { (finished) in
+            button.backgroundColor = UIColor.ts_pink
+        }
+    }
+
 }
 
 extension LoginViewController: Progressable, Alertable {
@@ -131,16 +186,18 @@ extension LoginViewController: Progressable, Alertable {
             return APIManager.loginUser(withEmail: email, password: password)
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
+            self._rememberUserIfNeeded()
             self._loginUser = loginUser
             self._presentHomeViewController(withLoginUser: loginUser)
         }.catch { [weak self] error in
-            self?.showAlertView(title: "Login failed",
-                                message: "Unable to login using provided email and password.")
+            guard let `self` = self else { return }
+            self._pulseButton(button: self._logInButton)
+            self.showAlertView(title: "Login failed",
+                               message: "Unable to login using provided email and password.")
         }.finally { [weak self] in
             self?.hideProgress()
+        }
     }
-
-}
 
     private func _registerUser(email: String, password: String) {
         showProgressView()
@@ -152,6 +209,7 @@ extension LoginViewController: Progressable, Alertable {
             return APIManager.loginUser(withEmail: email, password: password)
         }.done { [weak self] (loginUser: LoginData) in
             guard let `self` = self else { return }
+            self._rememberUserIfNeeded()
             self._loginUser = loginUser
             self._presentHomeViewController(withLoginUser: loginUser)
         }.catch { [weak self] error in
@@ -160,7 +218,23 @@ extension LoginViewController: Progressable, Alertable {
         }.finally { [weak self] in
             self?.hideProgress()
         }
-        
+    }
+
+    private func _rememberUserIfNeeded() {
+        if _rememberMeCheckmark.isSelected {
+            _keychain["email"] = self._emailTextField.text
+            _keychain["password"] = self._passwordTextField.text
+        }
+    }
+
+    private func _loginIfUserRemembered() {
+        guard
+            let emailOptional = try? _keychain.getString("email"),
+            let passwordOptional = try? _keychain.getString("password"),
+            let email = emailOptional,
+            let password = passwordOptional
+        else { return }
+        _loginUser(email: email, password: password)
     }
 
 }
