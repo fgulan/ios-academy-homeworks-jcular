@@ -18,7 +18,11 @@ class HomeViewController: UIViewController {
         didSet {
             _collectionView.delegate = self
             _collectionView.dataSource = self
-            _loadShows()
+            _loadShows(withToken: _loginUser.token)
+
+            _collectionView.refreshControl = _refreshControl
+            _refreshControl.tintColor = UIColor.ts.pink
+            _refreshControl.addTarget(self, action: #selector(_refreashData), for: .valueChanged)
         }
     }
 
@@ -28,6 +32,8 @@ class HomeViewController: UIViewController {
     private var _shows: [Show] = []
     private var _switchLayoutItem: UIBarButtonItem!
 
+    private let _refreshControl = UIRefreshControl()
+    
     // MARK: - Init -
 
     public class func initFromStoryboard(with loginUser: LoginData) -> HomeViewController {
@@ -73,13 +79,13 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func _didSelectSwitchLayout() {
-        UserDefaults.tv_shouldUseGrid = !UserDefaults.tv_shouldUseGrid
+        UserDefaults.ts.shouldUseGrid = !UserDefaults.ts.shouldUseGrid
         _setImageForSwitchLayoutBarButton()
         _collectionView.reloadData()
     }
 
     private func _setImageForSwitchLayoutBarButton() {
-        let shouldUseGridLayout = UserDefaults.tv_shouldUseGrid
+        let shouldUseGridLayout = UserDefaults.ts.shouldUseGrid
         let layoutImageName = shouldUseGridLayout ? "ic-gridview" : "ic-listview"
         let layoutButtonImage = UIImage(named:
             layoutImageName)?.withRenderingMode(.alwaysOriginal)
@@ -92,15 +98,22 @@ extension HomeViewController: Progressable, Alertable {
 
     // MARK: - Data loading -
 
-    func _loadShows() {
+    @objc private func _refreashData() {
+        _loadShows(withToken: _loginUser.token)
+    }
+
+    func _loadShows(withToken token: String) {
         showProgressView()
 
         firstly {
-            APIManager.getShows(withToken: _loginUser.token)
+            APIManager.getShows(withToken: token)
             }.done { [weak self] (shows: [Show]) in
                 guard let `self` = self else { return }
                 self._shows = shows
                 self._collectionView.reloadData()
+                if self._refreshControl.isRefreshing {
+                    self._refreshControl.endRefreshing()
+                }
             }.catch { [weak self] error in
                 self?.showAlertView(title: "Failed to fetch shows",
                                     message: "Failed to fetch shows, please check your internet connection.")
@@ -134,8 +147,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        if UserDefaults.tv_shouldUseGrid {
+        if UserDefaults.ts.shouldUseGrid {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "ShowGridCollectionViewCell",
                 for: indexPath
@@ -160,7 +172,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if UserDefaults.tv_shouldUseGrid {
+        if UserDefaults.ts.shouldUseGrid {
             let cellWidth = view.frame.size.width / 2 - 10
             let cellHeight = cellWidth * 4/3
 
@@ -171,7 +183,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
             return CGSize(width: cellWidth, height: cellHeight)
         }
-
     }
 
 }

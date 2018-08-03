@@ -23,6 +23,14 @@
 		CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */; };
 		CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8493CA20F2A21B00873A10 /* Login.storyboard */; };
 		CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8493CC20F2A24D00873A10 /* LoginViewController.swift */; };
+		CD9BB7F3211235D40016D6C7 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB7F2211235D40016D6C7 /* Media.swift */; };
+		CD9BB7F621124AB20016D6C7 /* EpisodeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD9BB7F521124AB20016D6C7 /* EpisodeDetails.storyboard */; };
+		CD9BB7F821124AC60016D6C7 /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB7F721124AC60016D6C7 /* EpisodeDetailsViewController.swift */; };
+		CD9BB800211256B10016D6C7 /* Comments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD9BB7FF211256B10016D6C7 /* Comments.storyboard */; };
+		CD9BB802211256BF0016D6C7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */; };
+		CD9BB805211259710016D6C7 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB804211259710016D6C7 /* CommentTableViewCell.swift */; };
+		CD9BB80721125C960016D6C7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB80621125C960016D6C7 /* Comment.swift */; };
+		CD9BB80B211354DD0016D6C7 /* CommentsBackground.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9BB80A211354DD0016D6C7 /* CommentsBackground.xib */; };
 		CDA07E2620EE6F44005118C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA07E2520EE6F44005118C8 /* AppDelegate.swift */; };
 		CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2C20EE6F45005118C8 /* Assets.xcassets */; };
 		CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */; };
@@ -55,6 +63,14 @@
 		CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableAlamofire+Promise.swift"; sourceTree = "<group>"; };
 		CD8493CA20F2A21B00873A10 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CD8493CC20F2A24D00873A10 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CD9BB7F2211235D40016D6C7 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		CD9BB7F521124AB20016D6C7 /* EpisodeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EpisodeDetails.storyboard; sourceTree = "<group>"; };
+		CD9BB7F721124AC60016D6C7 /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
+		CD9BB7FF211256B10016D6C7 /* Comments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comments.storyboard; sourceTree = "<group>"; };
+		CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		CD9BB804211259710016D6C7 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		CD9BB80621125C960016D6C7 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		CD9BB80A211354DD0016D6C7 /* CommentsBackground.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsBackground.xib; sourceTree = "<group>"; };
 		CDA07E2220EE6F44005118C8 /* TVShows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVShows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA07E2520EE6F44005118C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDA07E2C20EE6F45005118C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,10 +116,10 @@
 		CD233C1A21011C3D0017A5E6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CD233C1B21011C4F0017A5E6 /* Progressable.swift */,
-				CD233C1F2105EC4F0017A5E6 /* Alertable.swift */,
-				CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */,
-				CD319054210D390C005A6517 /* UserDefaults+TVShows.swift */,
+				CDE4E1E520FE82720099B515 /* API */,
+				CD9BB7FA211255AB0016D6C7 /* Extensions */,
+				CD9BB7F92112559F0016D6C7 /* Protocols */,
+				CDEA240A20FFD84600B8A60A /* Model */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -111,7 +127,6 @@
 		CD31903D21078A3C005A6517 /* ShowDetails */ = {
 			isa = PBXGroup;
 			children = (
-				CD31904B2109C975005A6517 /* Episode */,
 				CD31904421079675005A6517 /* TableViewCells */,
 				CD31903E21078A4E005A6517 /* ShowDetails.storyboard */,
 				CD31904021078A5D005A6517 /* ShowDetailsViewController.swift */,
@@ -129,13 +144,13 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
-		CD31904B2109C975005A6517 /* Episode */ = {
+		CD31904B2109C975005A6517 /* AddEpisode */ = {
 			isa = PBXGroup;
 			children = (
 				CD31904C2109C98C005A6517 /* AddEpisode.storyboard */,
 				CD31904E2109C99D005A6517 /* AddEpisodeViewController.swift */,
 			);
-			path = Episode;
+			path = AddEpisode;
 			sourceTree = "<group>";
 		};
 		CD31905821110132005A6517 /* CollectionViewCell */ = {
@@ -154,6 +169,92 @@
 				CD8493CC20F2A24D00873A10 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		CD9BB7F421124AA20016D6C7 /* EpisodeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB7F521124AB20016D6C7 /* EpisodeDetails.storyboard */,
+				CD9BB7F721124AC60016D6C7 /* EpisodeDetailsViewController.swift */,
+			);
+			path = EpisodeDetails;
+			sourceTree = "<group>";
+		};
+		CD9BB7F92112559F0016D6C7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CD233C1B21011C4F0017A5E6 /* Progressable.swift */,
+				CD233C1F2105EC4F0017A5E6 /* Alertable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CD9BB7FA211255AB0016D6C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */,
+				CD3190502109DDF5005A6517 /* UIColor+TVShows.swift */,
+				CD319054210D390C005A6517 /* UserDefaults+TVShows.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CD9BB7FB211255D10016D6C7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB7FE211256A00016D6C7 /* Comments */,
+				CD9BB7F421124AA20016D6C7 /* EpisodeDetails */,
+				CD31904B2109C975005A6517 /* AddEpisode */,
+				CD31903D21078A3C005A6517 /* ShowDetails */,
+				CDC70A7620FE5C51004AF82E /* Home */,
+				CD8493C920F2A1F900873A10 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CD9BB7FC2112560A0016D6C7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CDA07E2520EE6F44005118C8 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CD9BB7FD211256120016D6C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDA07E2C20EE6F45005118C8 /* Assets.xcassets */,
+				CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */,
+				CDA07E3120EE6F45005118C8 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD9BB7FE211256A00016D6C7 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB80E211359D90016D6C7 /* BackgroundView */,
+				CD9BB803211257BE0016D6C7 /* TableViewCell */,
+				CD9BB7FF211256B10016D6C7 /* Comments.storyboard */,
+				CD9BB801211256BF0016D6C7 /* CommentsViewController.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
+		CD9BB803211257BE0016D6C7 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB804211259710016D6C7 /* CommentTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		CD9BB80E211359D90016D6C7 /* BackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				CD9BB80A211354DD0016D6C7 /* CommentsBackground.xib */,
+			);
+			path = BackgroundView;
 			sourceTree = "<group>";
 		};
 		CDA07E1920EE6F44005118C8 = {
@@ -177,15 +278,10 @@
 		CDA07E2420EE6F44005118C8 /* TVShows */ = {
 			isa = PBXGroup;
 			children = (
+				CD9BB7FC2112560A0016D6C7 /* Application */,
 				CD233C1A21011C3D0017A5E6 /* Common */,
-				CDEA240A20FFD84600B8A60A /* Model */,
-				CDE4E1E520FE82720099B515 /* API */,
-				CDC70A7620FE5C51004AF82E /* Home */,
-				CD8493C920F2A1F900873A10 /* Login */,
-				CDA07E2520EE6F44005118C8 /* AppDelegate.swift */,
-				CDA07E2C20EE6F45005118C8 /* Assets.xcassets */,
-				CDA07E2E20EE6F45005118C8 /* LaunchScreen.storyboard */,
-				CDA07E3120EE6F45005118C8 /* Info.plist */,
+				CD9BB7FB211255D10016D6C7 /* Modules */,
+				CD9BB7FD211256120016D6C7 /* Resources */,
 			);
 			path = TVShows;
 			sourceTree = "<group>";
@@ -193,7 +289,6 @@
 		CDC70A7620FE5C51004AF82E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CD31903D21078A3C005A6517 /* ShowDetails */,
 				CDC70A7720FE5C6F004AF82E /* Home.storyboard */,
 				CDC70A7920FE5E0F004AF82E /* HomeViewController.swift */,
 				CD31905821110132005A6517 /* CollectionViewCell */,
@@ -205,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				CDE4E1E620FE82920099B515 /* APIManager.swift */,
-				CD7B7F7120FE9A30008FBA0E /* CodableAlamofire+Promise.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -216,6 +310,8 @@
 				CDE4E1E320FE73BF0099B515 /* User.swift */,
 				CDEA240B20FFD8A600B8A60A /* Show.swift */,
 				CD31904221078C9C005A6517 /* Episode.swift */,
+				CD9BB7F2211235D40016D6C7 /* Media.swift */,
+				CD9BB80621125C960016D6C7 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,12 +376,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9BB80B211354DD0016D6C7 /* CommentsBackground.xib in Resources */,
+				CD9BB800211256B10016D6C7 /* Comments.storyboard in Resources */,
 				CDA07E3020EE6F45005118C8 /* LaunchScreen.storyboard in Resources */,
 				CDA07E2D20EE6F45005118C8 /* Assets.xcassets in Resources */,
 				CD31904D2109C98C005A6517 /* AddEpisode.storyboard in Resources */,
 				CD8493CB20F2A21B00873A10 /* Login.storyboard in Resources */,
 				CD31903F21078A4E005A6517 /* ShowDetails.storyboard in Resources */,
 				CDC70A7820FE5C6F004AF82E /* Home.storyboard in Resources */,
+				CD9BB7F621124AB20016D6C7 /* EpisodeDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +446,8 @@
 			files = (
 				CD319057210DFE14005A6517 /* ShowListCollectionViewCell.swift in Sources */,
 				CD8493CD20F2A24D00873A10 /* LoginViewController.swift in Sources */,
+				CD9BB802211256BF0016D6C7 /* CommentsViewController.swift in Sources */,
+				CD9BB805211259710016D6C7 /* CommentTableViewCell.swift in Sources */,
 				CD31904321078C9C005A6517 /* Episode.swift in Sources */,
 				CD233C1C21011C4F0017A5E6 /* Progressable.swift in Sources */,
 				CD31904A210796CF005A6517 /* EpisodeTableViewCell.swift in Sources */,
@@ -356,10 +457,13 @@
 				CD319046210796B0005A6517 /* ShowImageTableViewCell.swift in Sources */,
 				CD233C202105EC4F0017A5E6 /* Alertable.swift in Sources */,
 				CDE4E1E420FE73BF0099B515 /* User.swift in Sources */,
+				CD9BB7F821124AC60016D6C7 /* EpisodeDetailsViewController.swift in Sources */,
 				CD31904F2109C99D005A6517 /* AddEpisodeViewController.swift in Sources */,
 				CDEA240C20FFD8A600B8A60A /* Show.swift in Sources */,
 				CDC70A7A20FE5E0F004AF82E /* HomeViewController.swift in Sources */,
+				CD9BB7F3211235D40016D6C7 /* Media.swift in Sources */,
 				CD319055210D390C005A6517 /* UserDefaults+TVShows.swift in Sources */,
+				CD9BB80721125C960016D6C7 /* Comment.swift in Sources */,
 				CDEA240E20FFDDA400B8A60A /* ShowGridCollectionViewCell.swift in Sources */,
 				CD7B7F7220FE9A30008FBA0E /* CodableAlamofire+Promise.swift in Sources */,
 				CD319048210796C3005A6517 /* ShowDescriptionTableViewCell.swift in Sources */,
@@ -502,7 +606,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67Z8CD63L2;
-				INFOPLIST_FILE = TVShows/Info.plist;
+				INFOPLIST_FILE = TVShows/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,7 +625,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 67Z8CD63L2;
-				INFOPLIST_FILE = TVShows/Info.plist;
+				INFOPLIST_FILE = TVShows/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

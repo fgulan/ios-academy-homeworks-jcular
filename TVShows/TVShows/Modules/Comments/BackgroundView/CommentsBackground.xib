@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUC-E4-HFE">
+                    <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-placehoder-comments" translatesAutoresizingMaskIntoConstraints="NO" id="JVm-df-LLz">
+                            <rect key="frame" x="134" y="241" width="107" height="102"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, we don't have comments yet.  Be first who will write a review." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvs-DZ-CAx">
+                            <rect key="frame" x="20" y="385.5" width="335" height="41"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Nvs-DZ-CAx" firstAttribute="top" secondItem="JVm-df-LLz" secondAttribute="bottom" constant="42.5" id="6MV-JC-YfP"/>
+                        <constraint firstItem="JVm-df-LLz" firstAttribute="centerX" secondItem="AUC-E4-HFE" secondAttribute="centerX" id="8fd-o1-QZg"/>
+                        <constraint firstItem="Nvs-DZ-CAx" firstAttribute="leading" secondItem="AUC-E4-HFE" secondAttribute="leading" constant="20" id="GVs-eu-s76"/>
+                        <constraint firstAttribute="trailing" secondItem="Nvs-DZ-CAx" secondAttribute="trailing" constant="20" id="a0u-YJ-wTL"/>
+                        <constraint firstItem="JVm-df-LLz" firstAttribute="centerY" secondItem="AUC-E4-HFE" secondAttribute="centerY" constant="-41.75" id="fd4-yG-VkD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AUC-E4-HFE" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="cwC-FM-F3J"/>
+                <constraint firstItem="AUC-E4-HFE" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="lBT-T3-1UD"/>
+                <constraint firstItem="AUC-E4-HFE" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="mE5-iU-9c5"/>
+                <constraint firstItem="AUC-E4-HFE" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="qif-nu-FFO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img-placehoder-comments" width="107" height="102"/>
+    </resources>
+</document>

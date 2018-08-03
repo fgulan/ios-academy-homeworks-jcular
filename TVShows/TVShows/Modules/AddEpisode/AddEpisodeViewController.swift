@@ -23,16 +23,18 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
 
     // MARK: - IBOutlets -
 
-    @IBOutlet weak var _scrollView: UIScrollView!
-    @IBOutlet weak var _episodeTitleTextField: UITextField!
-    @IBOutlet weak var _seasonNumberTextField: UITextField!
-    @IBOutlet weak var _episodeNumberTextField: UITextField!
-    @IBOutlet weak var _episodeDescriptionTextField: UITextField!
+    @IBOutlet private weak var _scrollView: UIScrollView!
+    @IBOutlet private weak var _episodeTitleTextField: UITextField!
+    @IBOutlet private weak var _seasonNumberTextField: UITextField!
+    @IBOutlet private weak var _episodeNumberTextField: UITextField!
+    @IBOutlet private weak var _episodeDescriptionTextField: UITextField!
+    @IBOutlet private weak var _uploadImageButton: UIButton!
 
     // MARK: - Private properties -
 
     private var _token: String!
     private var _showID: String!
+    private var _mediaID: String?
 
     // MARK: - Init -
 
@@ -63,19 +65,22 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
         _unregisterNotifications()
     }
 
+
+    // MARK: - Navigation Items -
+
     private func _setupNavigationItem() {
         let cancelButton = UIBarButtonItem(
             barButtonSystemItem: .cancel,
             target: self,
             action: #selector(_didSelectCancel))
-        cancelButton.tintColor = UIColor.ts_pink
+        cancelButton.tintColor = UIColor.ts.pink
         navigationItem.leftBarButtonItem = cancelButton
 
         let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(_didSelectAddShow))
-        addButton.tintColor = UIColor.ts_pink
+        addButton.tintColor = UIColor.ts.pink
         navigationItem.rightBarButtonItem = addButton
     }
 
@@ -86,7 +91,7 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
             APIManager.addEpisode(
                 withToken: _token,
                 showID: _showID,
-                mediaID: "",
+                mediaID: _mediaID,
                 title: self?._episodeTitleTextField.text,
                 description: self?._episodeDescriptionTextField.text,
                 episodeNumber: self?._episodeNumberTextField.text,
@@ -125,6 +130,11 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
     }
 
     @IBAction private func _didTapUploadPhoto(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(imagePicker, animated: true, completion: nil)
     }
 
     // MARK: - Notifications -
@@ -162,5 +172,34 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
         _scrollView.contentInset.bottom = 0
         _scrollView.scrollIndicatorInsets.bottom = 0
     }
+
+}
+
+
+extension AddEpisodeViewController: UIImagePickerControllerDelegate {
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let episodeImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            showProgressView()
+
+            firstly {
+                APIManager.uploadImage(withToken: _token, image: episodeImage)
+            }.done { [weak self] (media: Media) in
+                self?._uploadImageButton.imageView?.image = episodeImage
+                self?._mediaID = media.id
+            }.catch { [weak self] error in
+                self?.showAlertView(title: "Unable to upload image",
+                                    message: "Unable to upload image please check your internet connection.")
+            }.finally { [weak self] in
+                self?.hideProgress()
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+
+}
+
+extension AddEpisodeViewController: UINavigationControllerDelegate {
 
 }

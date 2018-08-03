@@ -157,6 +157,7 @@
                         <outlet property="_episodeTitleTextField" destination="eOi-Vv-k15" id="Qc0-j5-Krr"/>
                         <outlet property="_scrollView" destination="CiZ-lZ-dvs" id="lHI-pb-GeY"/>
                         <outlet property="_seasonNumberTextField" destination="iEb-7c-SEo" id="OdI-8k-J4Q"/>
+                        <outlet property="_uploadImageButton" destination="8iV-PZ-2As" id="oyr-Eu-LhP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZhW-33-7cw" userLabel="First Responder" sceneMemberID="firstResponder"/>

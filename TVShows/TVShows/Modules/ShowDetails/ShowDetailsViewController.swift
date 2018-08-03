@@ -25,6 +25,10 @@ class ShowDetailsViewController: UIViewController {
             _tableView.rowHeight = UITableViewAutomaticDimension
             _tableView.estimatedRowHeight = 300
             _tableView.contentInset.bottom = _addButton.frame.size.height + _addButtonBottomConstraints.constant
+
+            _tableView.refreshControl = _refreshControl
+            _refreshControl.tintColor = UIColor.ts.pink
+            _refreshControl.addTarget(self, action: #selector(_refreashData), for: .valueChanged)
         }
     }
     
@@ -35,6 +39,8 @@ class ShowDetailsViewController: UIViewController {
     private var _showDetails: ShowDetails?
     private var _episodes: [Episode] = []
 
+    private let _refreshControl = UIRefreshControl()
+    
     // MARK: - Init -
 
     public class func initFromStoryboard(withToken token: String, showID: String) -> ShowDetailsViewController {
@@ -53,14 +59,10 @@ class ShowDetailsViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-
     // MARK: - IBActions -
 
     @IBAction private func _didTapBackButton(_ sender: Any) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.popViewController(animated: true)
     }
 
@@ -79,6 +81,10 @@ extension ShowDetailsViewController: Progressable, Alertable {
 
     // MARK: - Data loading -
 
+    @objc private func _refreashData() {
+        _loadShowData(withToken: _token, showID: _showID)
+    }
+
     private func _loadShowData(withToken token: String, showID: String) {
         showProgressView()
 
@@ -91,6 +97,9 @@ extension ShowDetailsViewController: Progressable, Alertable {
             guard let `self` = self else { return }
             self._episodes = episodes
             self._tableView.reloadData()
+            if self._refreshControl.isRefreshing {
+                self._refreshControl.endRefreshing()
+            }
         }.catch { [weak self] error in
             self?.showAlertView(title: "Failed to fetch show details",
                                 message: "Failed to fetch show details, please check your internet connection.")
@@ -104,6 +113,17 @@ extension ShowDetailsViewController: Progressable, Alertable {
 // MARK: - UITableViewDelegate -
 
 extension ShowDetailsViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row > 1 else {
+            return
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let episode = _episodes[indexPath.row - 2]
+        let episodeDetailsViewController = EpisodeDetailsViewController.initFromStoryboard(withToken: _token, episodeID: episode.id)
+        navigationController?.show(episodeDetailsViewController, sender: self)
+    }
 
 }
 

@@ -30,8 +30,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-placeholder-user1" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-0j-SFY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="48.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-0j-SFY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="jgQ-0j-SFY" secondAttribute="height" multiplier="1:1" id="WiI-o8-rgq"/>
                                                     </constraints>
@@ -40,6 +40,8 @@
                                             <constraints>
                                                 <constraint firstItem="jgQ-0j-SFY" firstAttribute="leading" secondItem="yn8-4d-gkc" secondAttribute="leading" id="9Tm-So-DFp"/>
                                                 <constraint firstAttribute="bottom" secondItem="jgQ-0j-SFY" secondAttribute="bottom" id="BE5-Yb-E0o"/>
+                                                <constraint firstItem="jgQ-0j-SFY" firstAttribute="centerX" secondItem="yn8-4d-gkc" secondAttribute="centerX" id="NMo-sz-EJp"/>
+                                                <constraint firstItem="jgQ-0j-SFY" firstAttribute="centerY" secondItem="yn8-4d-gkc" secondAttribute="centerY" id="RyY-mU-Xfq"/>
                                                 <constraint firstAttribute="trailing" secondItem="jgQ-0j-SFY" secondAttribute="trailing" id="a80-Yl-oJt"/>
                                                 <constraint firstItem="jgQ-0j-SFY" firstAttribute="top" secondItem="yn8-4d-gkc" secondAttribute="top" id="zi4-Rs-DAc"/>
                                             </constraints>
@@ -184,6 +186,5 @@
         <image name="ic-fab-button" width="68" height="74"/>
         <image name="ic-navigate-back" width="32" height="32"/>
         <image name="ic-navigation-chevron-right-medium" width="24" height="24"/>
-        <image name="img-placeholder-user1" width="48" height="48"/>
     </resources>
 </document>
