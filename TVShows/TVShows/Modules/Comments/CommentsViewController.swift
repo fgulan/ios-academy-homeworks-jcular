@@ -20,8 +20,6 @@ class CommentsViewController: UIViewController {
             _tableView.delegate = self
             _tableView.dataSource = self
 
-            _loadComments(withToken: _token, episodeID: _episodeID)
-
             _tableView.rowHeight = UITableViewAutomaticDimension
             _tableView.estimatedRowHeight = 300
 
@@ -65,6 +63,7 @@ class CommentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        _loadComments(withToken: _token, episodeID: _episodeID)
 
         let backButtonImage = UIImage(named:
             "ic-navigate-back")?.withRenderingMode(.alwaysOriginal)
