@@ -34,7 +34,7 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
 
     private var _token: String!
     private var _showID: String!
-    private var _mediaID: String?
+    private var _episodeImage: UIImage?
 
     // MARK: - Init -
 
@@ -85,26 +85,21 @@ class AddEpisodeViewController: UIViewController, Alertable, Progressable {
     }
 
     @objc private func _didSelectAddShow() {
-        showProgressView()
-
-        firstly{ [weak self] in
-            APIManager.addEpisode(
-                withToken: _token,
-                showID: _showID,
-                mediaID: _mediaID,
-                title: self?._episodeTitleTextField.text,
-                description: self?._episodeDescriptionTextField.text,
-                episodeNumber: self?._episodeNumberTextField.text,
-                season: self?._seasonNumberTextField.text)
-        }.done { [weak self] (episode: Episode) in
-            guard let `self` = self else { return }
-            self.delegate?.succesfullyAddedEpisode()
-            self.navigationController?.dismiss(animated: true)
-        }.catch { [weak self] error in
-            self?.showAlertView(title: "Unable to add episode",
-                                message: "Unable to add episode please check your internet connection.")
-        }.finally { [weak self] in
-            self?.hideProgress()
+        if let episodeImage = _episodeImage {
+            _uploadEpisode(showID: _showID,
+                           token: _token,
+                           title: _episodeTitleTextField.text,
+                           description: _episodeDescriptionTextField.text,
+                           episodeNumber: _episodeNumberTextField.text,
+                           season: _seasonNumberTextField.text,
+                           episodeImage: episodeImage)
+        } else {
+            _uploadEpisode(showID: _showID,
+                           token: _token,
+                           title: _episodeTitleTextField.text,
+                           description: _episodeDescriptionTextField.text,
+                           episodeNumber: _episodeNumberTextField.text,
+                           season: _seasonNumberTextField.text)
         }
     }
 
@@ -180,26 +175,67 @@ extension AddEpisodeViewController: UIImagePickerControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let episodeImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            showProgressView()
-
-            firstly {
-                APIManager.uploadImage(withToken: _token, image: episodeImage)
-            }.done { [weak self] (media: Media) in
-                self?._uploadImageButton.imageView?.image = episodeImage
-                self?._mediaID = media.id
-            }.catch { [weak self] error in
-                self?.showAlertView(title: "Unable to upload image",
-                                    message: "Unable to upload image please check your internet connection.")
-            }.finally { [weak self] in
-                self?.hideProgress()
-            }
+            _episodeImage = episodeImage
         }
         picker.dismiss(animated: true, completion: nil)
     }
 
-
 }
 
 extension AddEpisodeViewController: UINavigationControllerDelegate {
+
+}
+
+extension AddEpisodeViewController {
+
+    private func _uploadEpisode(showID: String, token: String, title: String?, description: String?, episodeNumber: String?, season: String?) {
+        showProgressView()
+
+        firstly {
+            APIManager.addEpisode(
+                withToken: token,
+                showID: showID,
+                mediaID: "",
+                title: title,
+                description: description,
+                episodeNumber: episodeNumber,
+                season: season)
+        }.done { [weak self] (episode: Episode) in
+            guard let `self` = self else { return }
+            self.delegate?.succesfullyAddedEpisode()
+            self.navigationController?.dismiss(animated: true)
+        }.catch { [weak self] error in
+            self?.showAlertView(title: "Unable to add episode",
+            message: "Unable to add episode please check your internet connection.")
+        }.finally { [weak self] in
+            self?.hideProgress()
+        }
+    }
+
+    private func _uploadEpisode(showID: String, token: String, title: String?, description: String?, episodeNumber: String?, season: String?, episodeImage: UIImage) {
+        showProgressView()
+
+        firstly{
+            APIManager.uploadImage(withToken: _token, image: episodeImage)
+        }.then { (media: Media) in
+            APIManager.addEpisode(
+                withToken: token,
+                showID: showID,
+                mediaID: media.id,
+                title: title,
+                description: description,
+                episodeNumber: episodeNumber,
+                season: season)
+        }.done { [weak self] (episode: Episode) in
+            guard let `self` = self else { return }
+            self.delegate?.succesfullyAddedEpisode()
+            self.navigationController?.dismiss(animated: true)
+        }.catch { [weak self] error in
+            self?.showAlertView(title: "Unable to add episode",
+                                message: "Unable to add episode please check your internet connection.")
+        }.finally { [weak self] in
+            self?.hideProgress()
+        }
+    }
 
 }
